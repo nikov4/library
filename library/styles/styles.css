@@ -190,8 +190,6 @@ svg.pictogram {
 .about-image-item {
   width: 450px;
   height: 560px;
-  left: 950px;
-  top: 0px;
 }
 
 .slide1, .slide2, .slide3 {
@@ -208,21 +206,25 @@ svg.pictogram {
   justify-content: space-between;
   align-items: center;
   height: 16px;
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
-.about-pagination-wrapper {
-  width: 26px;
-  height: 26px;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.about-pagination-item {
+.pagination-item {
   width: 16px;
   height: 16px;
   background: #0C0C0E;
   border-radius: 50px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.pagination-item-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .pagination-item-active {
@@ -279,8 +281,23 @@ svg.pictogram {
   margin-right: 14px;
   width: 17px;
   height: 17px;
-  border-radius: 9999px;
-  border: 1px black solid;
+}
+
+.favorites-season-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.favorites-items {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1440px;
+  margin-left: 40px;
+  padding-top: 40px;
+  gap: ;
 }
 
 a {
