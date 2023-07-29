@@ -19,6 +19,10 @@ p, h2, ul {
   margin: 0;
 }
 
+img {
+  border: 0;
+}
+
 .wrapper {
   margin: 0 auto;
   display: flex;
@@ -74,7 +78,7 @@ p, h2, ul {
   word-wrap: break-word;
 }
 
-svg.pictogram{
+svg.pictogram {
 	width: 28px;
 	height: 28px;
   margin-top: 10px;
@@ -130,6 +134,96 @@ svg.pictogram{
   word-wrap: break-word;
 }
 
+.title {
+  text-align: center;
+  color: #0C0C0E;
+  font-size: 40px;
+  font-family: Forum;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 40px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.title-line {
+  text-align: center;
+  width: 50px;
+  height: 1px;
+  margin-top: 20px;
+  background: #0C0C0E;
+}
+
+.about {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1440px;
+  height: 837px;
+  padding-top: 20px;
+  background: white;
+}
+
+.about-text {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 40px;
+  padding-top: 40px;
+  word-wrap: break-word;
+}
+
+.about-images {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1400px;
+  height: 560px;
+  padding-top: 20px;
+  gap: 25px;
+}
+
+.about-image-item {
+  width: 450px;
+  height: 560px;
+  left: 950px;
+  top: 0px;
+}
+
+.slide1, .slide2, .slide3 {
+  display: inline;
+}
+
+.slide4, .slide5  {
+  display: none;
+}
+
+.about-pagination {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 68px;
+  height: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.about-pagination-item {
+  width: 16px;
+  height: 16px;
+  background: #0C0C0E;
+  border-radius: 50px;
+}
+
+.pagination-item-active {
+  background: #BB945F;
+}
+
 a {
   color: #0c0c0e;
   text-decoration: underline;
@@ -143,5 +237,6 @@ a.menu, a.menu:link, a.menu:active, a.menu:visited {
 a.menu:hover {
   color: #bb945f;
   text-decoration: underline;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
