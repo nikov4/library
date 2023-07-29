@@ -1,8 +1,9 @@
 body {
-  background-color: #c2c2c2;
+  background-color: #C2C2C2;
   padding: 0;
   margin: 0;
 }
+
 h1 {
   color: white;
   font-size: 30px;
@@ -12,6 +13,12 @@ h1 {
   letter-spacing: 0.60px;
   word-wrap: break-word;
 }
+
+p, h2, ul {
+  padding: 0;
+  margin: 0;
+}
+
 .wrapper {
   margin: 0 auto;
   display: flex;
@@ -19,38 +26,44 @@ h1 {
   justify-content: flex-start;
   align-items: center;
 }
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   width: 1440px;
   height: 90px;
   position: relative;
-  background-color: #0c0c0e;
-  align-items: flex-start;
+  background-color: #0C0C0E;
 }
+
 .header-left {
   display: inline-flex;
   justify-content: left;
   margin-left: 20px;
 }
+
 .header-right {
   display: inline-flex;
   justify-content: right;
-  margin-top: 5px;
+  margin-top: 20px;
 }
+
 .nav {
   height: 50px;
   justify-content: space-evenly;
   display: inline-flex;
   margin-right: 30px;
 }
+
 .nav ul {
   width: 584px;
   justify-content: space-evenly;
   display: inline-flex;
   gap: 30px;
 }
+
 .nav li {
   display: inline-flex;
   color: white;
@@ -60,20 +73,73 @@ h1 {
   line-height: 50px;
   word-wrap: break-word;
 }
+
 svg.pictogram{
 	width: 28px;
 	height: 28px;
-  margin-top: 25px;
+  margin-top: 10px;
   margin-right: 20px;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.welcome {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: flex-start;
+  width: 1440px;
+  height: 600px;
+  position: relative;
+  background: url(../images/welcome.jpg);
+  /*background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0%, rgba(18.33, 18.33, 21.25, 0.10) 100%), url(../images/welcome.jpg);*/
+}
+
+.welcome-overlay {
+  width: 1440px;
+  height: 300px;
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0%, rgba(18.33, 18.33, 21.25, 0.10) 100%);
+}
+
+.welcome-block {
+  position: absolute;
+  text-align: center;
+  width: 600px;
+  height: 220px;
+  padding-top: 220px;
+}
+
+.welcome-text {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background: #0C0C0E;
+  color: white;
+  font-size: 40px;
+  font-family: Forum;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 50px;
+  letter-spacing: 3px;
+  word-wrap: break-word;
+}
+
 a {
   color: #0c0c0e;
   text-decoration: underline;
 }
+
 a.menu, a.menu:link, a.menu:active, a.menu:visited {
   color: white;
   text-decoration: none;
 }
+
 a.menu:hover {
   color: #bb945f;
   text-decoration: underline;
