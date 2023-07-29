@@ -14,7 +14,7 @@ h1 {
   word-wrap: break-word;
 }
 
-p, h2, ul {
+p, h2, ul, form {
   padding: 0;
   margin: 0;
 }
@@ -154,7 +154,7 @@ svg.pictogram {
   background: #0C0C0E;
 }
 
-.about {
+.section-about {
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -207,10 +207,15 @@ svg.pictogram {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 68px;
   height: 16px;
   margin-top: 40px;
-  margin-bottom: 40px;
+}
+
+.about-pagination-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .about-pagination-item {
@@ -222,6 +227,60 @@ svg.pictogram {
 
 .pagination-item-active {
   background: #BB945F;
+}
+
+.section-favorites {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1440px;
+  height: 1439px;
+  background: white;
+}
+
+.favorites-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 1440px;
+  margin-left: 40px;
+}
+
+.favorites-text {
+  color: black;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 700;
+  padding-top: 40px;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.favorites-seasons {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 1440px;
+  margin-left: 40px;
+  padding-top: 40px;
+  gap: 80px;
+}
+
+.favorites-season-label {
+  color: black;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.favorites-season-radio {
+  margin-right: 14px;
+  width: 17px;
+  height: 17px;
+  border-radius: 9999px;
+  border: 1px black solid;
 }
 
 a {
