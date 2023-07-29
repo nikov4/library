@@ -13,11 +13,11 @@ h1 {
   word-wrap: break-word;
 }
 .wrapper {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  text-align00: center;
 }
 .header {
   display: flex;
@@ -43,11 +43,13 @@ h1 {
   height: 50px;
   justify-content: space-evenly;
   display: inline-flex;
+  margin-right: 30px;
 }
 .nav ul {
   width: 584px;
   justify-content: space-evenly;
   display: inline-flex;
+  gap: 30px;
 }
 .nav li {
   display: inline-flex;
