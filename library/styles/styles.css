@@ -206,7 +206,7 @@ svg.pictogram {
   justify-content: space-between;
   align-items: center;
   height: 16px;
-  margin-top: 45px;
+  margin-top: 40px;
 }
 
 .pagination-item {
@@ -278,14 +278,15 @@ svg.pictogram {
 }
 
 .favorites-season-radio {
-  margin-right: 14px;
   width: 17px;
   height: 17px;
 }
 
-.favorites-season-wrapper {
-  width: 26px;
-  height: 26px;
+.favorites-radio-wrapper {
+  display: inline-flex;
+  margin-right: 12px;
+  width: 27px;
+  height: 27px;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -297,7 +298,6 @@ svg.pictogram {
   width: 1440px;
   margin-left: 40px;
   padding-top: 40px;
-  gap: ;
 }
 
 a {
