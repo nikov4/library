@@ -237,19 +237,12 @@ svg.pictogram {
   justify-content: space-between;
   align-items: center;
   width: 1440px;
-  height: 1439px;
+  /*height: 1439px;*/
   background: white;
 }
 
-.favorites-wrapper {
- display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 1440px;
-  margin-left: 40px;
-}
-
 .favorites-text {
+  margin-left: 40px;
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -328,18 +321,14 @@ svg.pictogram {
 
 .book-button {
   position: absolute;
-  display0: inline-flex;
-  justify-content0: center;
-  align-items0: center;
-  bottom0: 100px;
-  right0: -40px;
+  bottom: 18px;
+  right: 456px;
+  z-index: 2;
   width: 75px;
   height: 30px;
   border-radius: 2px;
   border: 0.50px #0C0C0E solid;
   text-align: center;
-  bottom: 350px;
-  right: -20px;
   color: #0C0C0E;
   font-size: 10px;
   font-family: Inter;
@@ -349,9 +338,17 @@ svg.pictogram {
   background: white;
 }
 
+.book-button:hover {
+  background: #BB945F;
+}
+
 .button-disabled {
   border: 0.50px #BB945F solid;
   color: #BB945F;
+}
+
+.button-disabled:hover {
+  background: white;
 }
 
 .book-staff {
