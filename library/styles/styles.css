@@ -307,7 +307,7 @@ svg.pictogram {
 }
 
 .book-bg {
-  width: 550px;
+  width: 530px;
   height: 540px;
   background: white;
   border: 0.50px black solid;
@@ -320,7 +320,7 @@ svg.pictogram {
   width: 200px;
   height: 300px;
   bottom: 300px;
-  right: -410px;
+  right: -390px;
 }
 
 .book-button {
