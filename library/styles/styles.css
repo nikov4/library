@@ -291,13 +291,104 @@ svg.pictogram {
   cursor: pointer;
 }
 
-.favorites-items {
+.favorites-books {
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
   width: 1440px;
-  margin-left: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: 40px;
+}
+
+.book-wrapper {
+  width: 590px;
+  margin-left: 20px;
+}
+
+.book-bg {
+  width: 550px;
+  height: 555px;
+  background: white;
+  border: 0.50px black solid;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.book-staff {
+  color: black;
+  font-size: 20px;
+  font-family: Forum;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 40px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.book-line {
+  width: 60px;
+  height: 0px;
+  border: 0.50px #BB945F solid;
+}
+
+.book-name {
+  margin-top: 20px;
+  color: black;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 40px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.book-autor {
+  color: black;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 40px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.book-summary {
+  margin-top: 20px;
+  width: 355px;
+  color: black;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 40px;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.book-image {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.book-button {
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 0.50px #0C0C0E solid;
+  text-align: center;
+}
+
+.book-button-label {
+  color: #0C0C0E;
+  font-size: 10px;
+  font-family: Inter;
+  font-weight: 700;
+  letter-spacing: 1px;
+  word-wrap: break-word;
 }
 
 a {
