@@ -332,6 +332,7 @@ svg.pictogram {
   font-weight: 700;
   letter-spacing: 1px;
   word-wrap: break-word;
+  background: white;
 }
 
 .book-button:hover {
