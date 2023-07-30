@@ -1,5 +1,5 @@
 body {
-  background-color: #C2C2C2;
+  background: #C2C2C2;
   padding: 0;
   margin: 0;
 }
@@ -90,6 +90,7 @@ svg.pictogram {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  background: white;
 }
 
 .section-welcome {
@@ -162,7 +163,6 @@ svg.pictogram {
   width: 1440px;
   height: 837px;
   padding-top: 20px;
-  background: white;
 }
 
 .about-text {
@@ -238,7 +238,6 @@ svg.pictogram {
   align-items: center;
   width: 1440px;
   /*height: 1439px;*/
-  background: white;
 }
 
 .favorites-text {
@@ -304,7 +303,6 @@ svg.pictogram {
 .book-bg {
   width: 530px;
   height: 540px;
-  background: white;
   border: 0.50px black solid;
   padding-top: 15px;
   padding-left: 20px;
@@ -334,7 +332,6 @@ svg.pictogram {
   font-weight: 700;
   letter-spacing: 1px;
   word-wrap: break-word;
-  background: white;
 }
 
 .book-button:hover {
@@ -411,7 +408,6 @@ svg.pictogram {
   width: 1440px;
   /*height: 781px;*/
   padding-top: 60px;
-  background: white;
 }
 
 .coffee-shop-text {
@@ -427,6 +423,15 @@ svg.pictogram {
   line-height: 40px;
   letter-spacing: 2px;
   word-wrap: break-word;
+}
+
+.coffee-shop-menu-wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  /*height: 1439px;*/
 }
 
 .coffee-shop-menu-column {
