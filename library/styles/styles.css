@@ -58,7 +58,7 @@ img {
   height: 50px;
   justify-content: space-evenly;
   display: inline-flex;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 .nav ul {
@@ -92,7 +92,7 @@ svg.pictogram {
   align-items: flex-start;
 }
 
-.welcome {
+.section-welcome {
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -234,7 +234,7 @@ svg.pictogram {
 .section-favorites {
   display: inline-flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 1440px;
   height: 1439px;
@@ -242,7 +242,7 @@ svg.pictogram {
 }
 
 .favorites-wrapper {
-  display: inline-flex;
+ display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 1440px;
@@ -269,7 +269,7 @@ svg.pictogram {
   gap: 80px;
 }
 
-.favorites-season-label {
+.season-label {
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -277,18 +277,18 @@ svg.pictogram {
   word-wrap: break-word;
 }
 
-.favorites-season-radio {
-  width: 17px;
-  height: 17px;
-}
-
-.favorites-radio-wrapper {
+.season-wrapper {
   display: inline-flex;
   margin-right: 12px;
   width: 27px;
   height: 27px;
   border-radius: 50px;
   cursor: pointer;
+}
+
+.season-radio {
+  width: 17px;
+  height: 17px;
 }
 
 .favorites-books {
@@ -302,8 +302,11 @@ svg.pictogram {
 }
 
 .book-wrapper {
+  display: inline-flex;
+  position: relative;
   margin-left: 20px;
   margin-right: 60px;
+  background-color: aquamarine;
 }
 
 .book-bg {
@@ -316,18 +319,20 @@ svg.pictogram {
 }
 
 .book-image {
-  position: relative;
+  position: absolute;
   width: 200px;
   height: 300px;
-  bottom: 300px;
-  right: -390px;
+  bottom: 0px;
+  right: -40px;
 }
 
 .book-button {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  display0: inline-flex;
+  justify-content0: center;
+  align-items0: center;
+  bottom0: 100px;
+  right0: -40px;
   width: 75px;
   height: 30px;
   border-radius: 2px;
@@ -341,10 +346,12 @@ svg.pictogram {
   font-weight: 700;
   letter-spacing: 1px;
   word-wrap: break-word;
+  background: white;
 }
 
-.button-active {
-  background: #BB945F;
+.button-disabled {
+  border: 0.50px #BB945F solid;
+  color: #BB945F;
 }
 
 .book-staff {
