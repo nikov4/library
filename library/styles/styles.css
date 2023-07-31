@@ -512,6 +512,26 @@ svg.pictogram {
   word-wrap: break-word;
 }
 
+.section-our-contact {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  /*height: 841px;*/
+  margin-top: 60px;
+}
+
+.section-library-card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  /*height: 614px;*/
+  margin-top: 60px;
+}
+
 a {
   color: #0c0c0e;
   text-decoration: underline;
