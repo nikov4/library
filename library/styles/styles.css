@@ -519,7 +519,6 @@ svg.pictogram {
   align-items: center;
   /*height: 841px;*/
   margin-top: 100px;
-  margin-bottom: 30px;
 }
 
 .contacts-wrapper {
@@ -529,6 +528,7 @@ svg.pictogram {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  margin-top: 28px;
   gap: 196px;
 }
 
