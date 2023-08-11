@@ -91,7 +91,7 @@
         <section class="section-favorites">
           <h2 class="title"><a id="favorites"></a>Favorites</h2>
           <div class="title-line"></div>
-          <form name="form" action="#">
+          <form name="favorites" action="#">
             <div class="favorites-text">Pick favorites of season</div>
             <div class="favorites-seasons">
               <label class="season-label">
@@ -265,11 +265,11 @@
 
       <div class="contacts-wrapper">
         <div class="contacts-address">
-          <div class="contacts-text contacts-text-header1 bold">For all Library inquiries:</div>
-          <div class="contacts-text">Please call (617) 730-2370</div>
-          <div class="contacts-text">For TTY service, please call (617) 730-2370</div>
-          <div class="contacts-text">Putterham Library: (617) 730-2385</div>
-          <div class="contacts-text contacts-text-header2 bold">Senior Staff</div>
+          <div class="contacts-text contacts-text-header1">For all Library inquiries:</div>
+          <div class="contacts-text">Please call <a href="tel:(617)730-2370">(617) 730-2370</a></div>
+          <div class="contacts-text">For TTY service, please call <a href="tel:(617)730-2370">(617) 730-2370</a></div>
+          <div class="contacts-text">Putterham Library: <a href="tel:(617)730-2385">(617) 730-2385</a></div>
+          <div class="contacts-text contacts-text-header2">Senior Staff</div>
           <div class="contacts-text">Library Director: <span class="bold">Amanda Hirst</span></div>
         </div>
         <div class="contacts-map"><img src="./images/contacts.jpg" width="696" height="414" alt="map"></div>
@@ -280,6 +280,35 @@
       <section class="section-library-card">
         <h2 class="title"><a id="library-card"></a>Digital Library Cards</h2>
         <div class="title-line"></div>
+
+        <div class="card-wrapper">
+          <form name="library_card" action="#">
+            <div class="card-find-form">
+              <div class="find-form-header">Find your Library card</div>
+              <div class="find-form-wrapper">
+                <div class="find-form-block">
+                  <div class="find-form-text">Brooklyn Public Library</div>
+                    <input class="find-form-input" type="text" name="reader_name" id="reader_name" placeholder="Reader's name">
+                    <input class="find-form-input" type="text" name="card_number" id="card_number" placeholder="Card number">
+                </div>
+                <div class="find-form-submit-wrapper">
+                  <button class="find-form-button" type="button" id="find-form">Check the card</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-login-form">
+              <div class="login-form-header">Get a reader card</div>
+              <div class="login-form-wrapper">
+                <div class="login-form-text">You will be able to see a reader card after logging into account or you can register a new account</div>
+                <div class="login-form-submit-wrapper">
+                  <button class="login-form-button" type="button" id="sign_up">Sign Up</button>
+                  <button class="login-form-button" type="button" id="login_in">Log in</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
       </section>
 
 
