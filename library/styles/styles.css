@@ -15,7 +15,6 @@ h1 {
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 0.60px;
-  word-wrap: break-word;
 }
 
 p, h2, ul, form {
@@ -23,27 +22,28 @@ p, h2, ul, form {
   margin: 0;
 }
 
-.bold {
-  font-weight: 700;
+a {
+  color: #0c0c0e;
+  text-decoration: underline;
+}
+
+a.menu, a.footer-link, a.menu:link, a.menu:active, a.menu:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a.menu:hover {
+  color: #bb945f;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 img {
   border: 0;
 }
 
-.alignleft {
-  text-align: left;
-  justify-content: left;
-}
-
-.alignright {
-  text-align: right;
-  justify-content: right;
-}
-
-.aligncenter {
-  text-align: center;
-  justify-content: center;
+.bold {
+  font-weight: 700;
 }
 
 .container {
@@ -96,15 +96,19 @@ img {
   font-family: Inter;
   font-weight: 400;
   line-height: 50px;
-  word-wrap: break-word;
 }
 
-svg.pictogram {
+.pic-user {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+/*svg.pictogram {
 	width: 28px;
 	height: 28px;
   margin-top: 10px;
   margin-right: 20px;
-}
+}*/
 
 .main {
   display: flex;
@@ -153,7 +157,6 @@ svg.pictogram {
   text-transform: uppercase;
   line-height: 50px;
   letter-spacing: 3px;
-  word-wrap: break-word;
 }
 
 .title {
@@ -165,7 +168,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .title-line {
@@ -194,7 +196,6 @@ svg.pictogram {
   font-weight: 400;
   line-height: 40px;
   padding-top: 40px;
-  word-wrap: break-word;
 }
 
 .about-images {
@@ -268,7 +269,6 @@ svg.pictogram {
   font-family: Inter;
   font-weight: 700;
   padding-top: 40px;
-  word-wrap: break-word;
   text-align: left;
 }
 
@@ -287,7 +287,6 @@ svg.pictogram {
   font-size: 20px;
   font-family: Inter;
   font-weight: 400;
-  word-wrap: break-word;
 }
 
 .season-wrapper {
@@ -352,7 +351,6 @@ svg.pictogram {
   font-family: Inter;
   font-weight: 700;
   letter-spacing: 1px;
-  word-wrap: break-word;
   background: white;
 }
 
@@ -377,7 +375,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .book-line {
@@ -395,7 +392,6 @@ svg.pictogram {
   text-transform: uppercase;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .book-autor {
@@ -406,7 +402,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .book-summary {
@@ -419,7 +414,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .section-coffee-shop {
@@ -444,7 +438,6 @@ svg.pictogram {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .coffee-shop-menu-wrapper {
@@ -472,7 +465,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .coffee-shop-menu-item {
@@ -513,7 +505,6 @@ svg.pictogram {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: break-word;
 }
 
 .section-our-contacts {
@@ -741,18 +732,95 @@ svg.pictogram {
   background: #BB945F;
 }
 
-a {
-  color: #0c0c0e;
-  text-decoration: underline;
+.footer {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #0C0C0E;
 }
 
-a.menu, a.menu:link, a.menu:active, a.menu:visited {
+.footer-container {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 1400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-address {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  width: 300px;
   color: white;
-  text-decoration: none;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
 }
 
-a.menu:hover {
-  color: #bb945f;
-  text-decoration: underline;
-  cursor: pointer;
+.footer-opening {
+  text-align: right;
+  color: white;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.footer-social {
+  display: inline-flex;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.footer-line {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 0px;
+  border: 0.50px white solid;
+}
+
+.footer-year {
+  height: 80px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.footer-school {
+  height: 80px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.footer-student {
+  height: 80px;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 113px;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
 }
