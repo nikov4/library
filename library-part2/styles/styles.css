@@ -221,6 +221,8 @@ img {
   font-weight: 400;
   line-height: 40px;
   padding-top: 40px;
+  margin-left: 77px;
+  margin-right: 77px;
 }
 
 .about-images {
@@ -982,7 +984,6 @@ img {
   .pag-item4, .pag-item5 {
     display: inline;
   }
-
   /*  .pic-user {
     display: none;
   }
