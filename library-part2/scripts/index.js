@@ -20,7 +20,6 @@ function showhide(toShow) {
 }
 
 
-
 /*
 var scr_w = window.outerWidth;
 scr_w = scr_w + 'px';
