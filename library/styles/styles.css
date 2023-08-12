@@ -22,6 +22,14 @@ p, h2, ul, form {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline;
+}
+
 a {
   color: #0c0c0e;
   text-decoration: underline;
@@ -118,6 +126,8 @@ img {
   background: white;
 }
 
+/* Section Welcome */
+
 .section-welcome {
   display: inline-flex;
   flex-direction: column;
@@ -177,6 +187,8 @@ img {
   margin-top: 20px;
   background: #0C0C0E;
 }
+
+/* Section About */
 
 .section-about {
   width: 1440px;
@@ -253,6 +265,8 @@ img {
   background: #BB945F;
 }
 
+/* Section Favorites */
+
 .section-favorites {
   display: inline-flex;
   flex-direction: column;
@@ -276,10 +290,10 @@ img {
   display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 1440px;
+  width: 1400px;
   margin-left: 40px;
   padding-top: 40px;
-  gap: 80px;
+  gap: 89px;
 }
 
 .season-label {
@@ -318,7 +332,7 @@ img {
   display: inline-flex;
   position: relative;
   margin-left: 20px;
-  margin-right: 60px;
+  margin-right: 58px;
 }
 
 .book-bg {
@@ -338,7 +352,7 @@ img {
 
 .book-button {
   position: absolute;
-  bottom: 18px;
+  bottom: 16px;
   right: 456px;
   z-index: 2;
   width: 75px;
@@ -368,6 +382,7 @@ img {
 }
 
 .book-staff {
+  margin-top: -3px;
   color: black;
   font-size: 20px;
   font-family: Forum;
@@ -416,6 +431,8 @@ img {
   letter-spacing: 2px;
 }
 
+/* Section Coffee Shop */
+
 .section-coffee-shop {
   width: 1440px;
   display: inline-flex;
@@ -427,11 +444,9 @@ img {
 }
 
 .coffee-shop-text {
-  display: inline-flex;
   text-align: center;
-  margin-left: 20px;
+  margin-left: -8px;
   margin-top: 40px;
-  margin-bottom: 40px;
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -440,24 +455,33 @@ img {
   letter-spacing: 2px;
 }
 
-.coffee-shop-menu-wrapper {
+.coffee-menu-wrapper {
   width: 1400px;
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 40px;
 }
 
-.coffee-shop-menu-column {
-  width: 438px;
-  height: 520px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 40px;
+.coffee-menu-column-left {
   display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  gap: 40px;
 }
 
-.coffee-shop-menu-header {
+.coffee-menu-column-right {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  margin-right: -1px;
+}
+
+.coffee-menu-drikns {
   color: #BB945F;
   font-size: 40px;
   font-family: Forum;
@@ -467,18 +491,26 @@ img {
   letter-spacing: 2px;
 }
 
-.coffee-shop-menu-item {
-  width: 438px;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+.coffee-menu-cakes {
+  text-align: right;
+  color: #BB945F;
+  font-size: 40px;
+  font-family: Forum;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.coffee-menu-item {
+  display: flex;
   align-items: center;
+  flex-direction: row;
   gap: 60px;
 }
 
 .menu-item-name {
-  width: 196px;
+  flex-grow: 2;
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -486,18 +518,16 @@ img {
   text-transform: capitalize;
   line-height: 40px;
   letter-spacing: 2px;
-  word-wrap: normal;
+  word-wrap: break-word
 }
 
 .menu-item-line {
   width: 100px;
-  text-align: right;
-  height: 0px;
-  border: 0.50px #BB945F solid;
+  height: 2px;
+  background: #BB945F;
 }
 
 .menu-item-price {
-  text-align: right;
   color: black;
   font-size: 20px;
   font-family: Forum;
@@ -507,6 +537,8 @@ img {
   letter-spacing: 2px;
 }
 
+/* Section Our Contacts */
+
 .section-our-contacts {
   width: 1440px;
   display: inline-flex;
@@ -514,7 +546,7 @@ img {
   justify-content: space-between;
   align-items: center;
   /*height: 841px;*/
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .contacts-wrapper {
@@ -558,11 +590,14 @@ img {
 
 .contacts-map {
   display: inline-flex;
-  margin-top: 10px;
+  margin-top: 11px;
   width: 696px;
   height: 414px;
   margin-right: 100px;
+  margin-left: 3px;
 }
+
+/* Section Library Card */
 
 .section-library-card {
   display: inline-flex;
@@ -684,7 +719,8 @@ img {
 }
 
 .login-form-header {
-  margin-top: 2px;
+  margin-right: 0px;
+  margin-top: 1px;
   text-align: center;
   color: black;
   font-size: 30px;
@@ -695,6 +731,7 @@ img {
 
 .login-form-text {
   padding-top: 30px;
+  margin-right: -2px;
   width: 456px;
   text-align: right;
   color: black;
@@ -731,6 +768,8 @@ img {
 .login-form-button:hover {
   background: #BB945F;
 }
+
+/* footer section */
 
 .footer {
   width: 1440px;
@@ -778,6 +817,7 @@ img {
 }
 
 .footer-line {
+  margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   height: 0px;
