@@ -203,7 +203,8 @@ img {
 /* Section About */
 
 .section-about {
-  width: 1440px;
+  /*width: 1440px;*/
+  width: 100%;
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
