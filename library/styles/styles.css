@@ -621,6 +621,7 @@ img {
 }
 
 .card-find-form {
+  width: 600px;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
