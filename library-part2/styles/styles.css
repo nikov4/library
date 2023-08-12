@@ -242,17 +242,13 @@ img {
 }
 
 .about-images-carret-left{
-  width: 24px;
   position: relative;
-  margin-left: 58px;
-  background: url(../images/carret_left.svg);
+  margin-right: 24px;
 }
 
 .about-images-carret-right{
-  width: 24px;
   position: relative;
-  margin-right: 58px;
-  background: url(../images/carret_right.svg);
+  margin-left: 24px;
 }
 
 .slide1, .slide2, .slide3 {
