@@ -627,7 +627,7 @@ a.menu:hover {
 .contacts-map {
   align-self: center;
   margin-top: 11px;
-  width: 696px;
+  /*width: 696px;*/
   height: 414px;
   margin-right: 20px;
   margin-left: 20px;
