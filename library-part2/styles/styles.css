@@ -57,7 +57,7 @@ a.menu:hover {
 }
 
 .box-shadow {
-  box-shadow: 0px 10px 10px -10px rgba(0,0,0,0.5);
+  box-shadow: 5px 10px 10px -10px rgba(0,0,0,0.5);
 }
 
 .container {
@@ -738,7 +738,6 @@ a.menu:hover {
 .card-login-form {
   margin-right: 20px;
   margin-bottom: 40px;
-  /*width: 594px;*/
 }
 
 .login-form-header {
@@ -758,7 +757,7 @@ a.menu:hover {
   text-align: right;
   padding-top: 30px;
   margin-right: -2px;
-  width: 456px;
+  /*width: 456px;*/
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -845,8 +844,9 @@ a.menu:hover {
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  height: 0px;
-  border: 0.50px white solid;
+  height: 1px;
+  margin-top: 20px;
+  background: white;
 }
 
 .footer-year {
@@ -949,6 +949,15 @@ a.menu:hover {
   margin-top: 30px;
 }
 
+@media (min-width: 1025px) {
+  .login-form-text {
+    width: 456px;
+  }
+  .section-library-card {
+    margin-bottom: 40px;
+  }
+}
+
 /*@media (max-width: 768px) {*/
 @media (max-width: 1024px) {
   .container {
@@ -990,6 +999,11 @@ a.menu:hover {
     flex-direction: column;
     gap: 40px;
   }
+  .card-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .find-form-header{
     text-align: center;
   }
@@ -1002,9 +1016,8 @@ a.menu:hover {
   .login-form-submit-wrapper {
     justify-content: center;
   }
-  .card-wrapper {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .login-form-text {
+    margin-left: 100px;
+    margin-right: 100px;
   }
 }
