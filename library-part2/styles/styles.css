@@ -484,7 +484,6 @@ a.menu:hover {
 }
 
 .coffee-menu-wrapper {
-  /*width: 1400px;*/
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -573,24 +572,21 @@ a.menu:hover {
 /* Section Our Contacts */
 
 .section-our-contacts {
-  width: 1440px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /*height: 841px;*/
+  /*width: 1440px;*/
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
 }
 
 .contacts-wrapper {
-  width: 1440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 40px;
   margin-top: 28px;
-  gap: 196px;
+  gap: 100px;
 }
 
 .contacts-address {
@@ -622,12 +618,12 @@ a.menu:hover {
 }
 
 .contacts-map {
-  display: inline-flex;
+  align-self: center;
   margin-top: 11px;
   width: 696px;
   height: 414px;
-  margin-right: 100px;
-  margin-left: 3px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 /* Section Library Card */
@@ -638,7 +634,6 @@ a.menu:hover {
   justify-content: space-between;
   align-items: center;
   width: 1440px;
-  /*height: 614px;*/
   margin-top: 20px;
 }
 
@@ -999,4 +994,7 @@ a.menu:hover {
   .coffee-menu-column-right{
     margin-top: 40px;
   }
+  .contacts-wrapper {
+    flex-direction: column;
+    gap: 40px;
 }
