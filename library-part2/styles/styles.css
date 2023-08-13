@@ -142,7 +142,7 @@ a.menu:hover {
   position: relative;
   background: url(../images/welcome_big.jpg);
   background-position: center;
-  background-size:100% 100dvb;
+  background-size: 100% 100dvb;
   background-repeat: no-repeat;
   /*background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0%, rgba(18.33, 18.33, 21.25, 0.10) 100%), url(../images/welcome.jpg);*/
 }
@@ -220,12 +220,10 @@ a.menu:hover {
 
 .about-images {
   width: 97%;
-  /*max-width: 1400;*/
   display: flex;
   flex-direction: row;
   justify-content: center safe;
   align-items: center;
-  /*height: auto;*/
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -300,11 +298,9 @@ a.menu:hover {
 
 .section-favorites {
   width: 100%;
-  /*max-width: 1440px;*/
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
-  /*width: 1440px;*/
 }
 
 .favorites-text {
@@ -323,7 +319,6 @@ a.menu:hover {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  /*width: 100%;*/
   margin-left: 20px;
   padding-top: 20px;
 }
@@ -357,7 +352,6 @@ a.menu:hover {
 
 .favorites-books {
   width: 98%;
-  /*max-width: 1400px;*/
   height: 555px;
   display: flex;
   flex-direction: row;
@@ -582,7 +576,6 @@ a.menu:hover {
 /* Section Our Contacts */
 
 .section-our-contacts {
-  /*width: 1440px;*/
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -654,7 +647,6 @@ a.menu:hover {
 }
 
 .card-find-form {
-  /*width: 600px;*/
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -670,7 +662,7 @@ a.menu:hover {
 }
 
 .find-form-wrapper {
-  width: 595px;
+  width: 600px;
   height: 382px;
   background: white;
   border: 3px #BB945F solid;
@@ -702,7 +694,7 @@ a.menu:hover {
   padding-left: 18px;
   padding-right: 20px;
   border: 0;
-  width: 476px;
+  width: 480px;
   height: 66px;
   background: white;
   border-radius: 10px;
@@ -764,7 +756,6 @@ a.menu:hover {
   text-align: right;
   padding-top: 30px;
   margin-right: -2px;
-  /*width: 456px;*/
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -803,7 +794,6 @@ a.menu:hover {
 /* footer section */
 
 .footer {
-  /*width: 1440px;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -814,7 +804,6 @@ a.menu:hover {
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  /*width: 1400px;*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1013,9 +1002,6 @@ a.menu:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .find-form-wrapper {
-    width: 570px;
   }
   .find-form-header{
     text-align: center;
