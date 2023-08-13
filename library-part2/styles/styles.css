@@ -61,6 +61,7 @@ a.menu:hover {
 }
 
 .container {
+  width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
@@ -215,13 +216,13 @@ a.menu:hover {
 }
 
 .about-images {
-  width: 100%;
-  max-width: 1400;
+  width: 97%;
+  /*max-width: 1400;*/
   display: flex;
   flex-direction: row;
   justify-content: center safe;
   align-items: center;
-  height: auto;
+  /*height: auto;*/
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -296,7 +297,7 @@ a.menu:hover {
 
 .section-favorites {
   width: 100%;
-  max-width: 1440px;
+  /*max-width: 1440px;*/
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -322,7 +323,6 @@ a.menu:hover {
   /*width: 100%;*/
   margin-left: 20px;
   padding-top: 20px;
-  gap0: auto;
 }
 
 .season-label {
@@ -353,8 +353,8 @@ a.menu:hover {
 }
 
 .favorites-books {
-  width: 100%;
-  max-width: 1400px;
+  width: 98%;
+  /*max-width: 1400px;*/
   height: 555px;
   display: flex;
   flex-direction: row;
@@ -378,7 +378,7 @@ a.menu:hover {
 .book-image {
   position: absolute;
   bottom: -1px;
-  right: -50px;
+  right: -40px;
   width: 200px;
   height: 300px;
 }
@@ -627,7 +627,6 @@ a.menu:hover {
 .contacts-map {
   align-self: center;
   margin-top: 11px;
-  /*width: 696px;*/
   height: 414px;
   margin-right: 20px;
   margin-left: 20px;
@@ -896,19 +895,21 @@ a.menu:hover {
 }
 
 .pic-user {
-  margin-top: 10px;
-  margin-right: 25px;
+  margin-top: 5px;
+  margin-right: 15px;
 }
 
+/* Adaptives stuff */
+
 .pic-user-mobile {
-  margin-top: 28px;
+  margin-top: 23px;
   margin-right: 25px;
 }
 
 .pic-hamburger {
-  margin-top: 25px;
-  margin-left: 13px;
-  margin-right: 20px;
+  margin-top: 23px;
+  margin-left: 14px;
+  margin-right: -1px;
 }
 
 .pics-hamburger {
@@ -918,8 +919,6 @@ a.menu:hover {
   margin-top: 2px;
   margin-bottom: 5px;
 }
-
-/* Adaptives stuff */
 
 .hamburger {
   display: none;
@@ -976,6 +975,8 @@ a.menu:hover {
   }
   .about-images {
     justify-content: center;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .about-images-carret-left {
     display: inline;
@@ -992,7 +993,8 @@ a.menu:hover {
   .favorites-books {
     flex-direction: column;
     justify-content: center;
-    margin-right: 150px;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .coffee-menu-wrapper {
     flex-direction: column;
@@ -1008,6 +1010,9 @@ a.menu:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .find-form-wrapper {
+    width: 570px;
   }
   .find-form-header{
     text-align: center;
