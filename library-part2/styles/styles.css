@@ -60,6 +60,7 @@ a.menu:hover {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  background: white;
 }
 
 .header {
@@ -120,7 +121,6 @@ a.menu:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background: white;
 }
 
 /* Section Welcome */
@@ -638,7 +638,6 @@ a.menu:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 40px;
   margin-top: 28px;
   gap: 10px;
 }
@@ -926,7 +925,7 @@ a.menu:hover {
   z-index: 999;
   width: 332px;
   height: 570px;
-  background: #000;
+  background: black;
 }
 
 .mobile-wrapper {
@@ -937,7 +936,7 @@ a.menu:hover {
 }
 
 .mobile-links {
-  color: #FFF;
+  color: white;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -972,13 +971,9 @@ a.menu:hover {
   .pag-item4, .pag-item5 {
     display: inline;
   }
-  .section-favorites0 {
-    margin-top: 60px;
-  }
   .favorites-books {
     flex-direction: column;
     justify-content: center;
-    margin-left: 0px;
     margin-right: 150px;
   }
   .coffee-menu-wrapper {
