@@ -206,8 +206,8 @@ a.menu:hover {
   font-weight: 400;
   line-height: 40px;
   padding-top: 40px;
-  margin-left: 77px;
-  margin-right: 77px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .about-images {
@@ -466,9 +466,7 @@ a.menu:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  /*width: 1440px;*/
-  /*height: 781px;*/
-  padding-top: 60px;
+  margin-top: 60px;
 }
 
 .coffee-shop-text {
@@ -481,35 +479,39 @@ a.menu:hover {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .coffee-menu-wrapper {
-  width: 1400px;
+  /*width: 1400px;*/
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items:;
   margin-top: 40px;
 }
 
 .coffee-menu-column-left {
+  width: 445px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: space-between;
-  margin-left: 10px;
+  margin-left: 20px;
   gap: 40px;
 }
 
 .coffee-menu-column-right {
   display: inline-flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
   gap: 40px;
-  margin-right: 0px;
+  margin-right: 20px;
 }
 
 .coffee-menu-drikns {
@@ -993,5 +995,8 @@ a.menu:hover {
   }
   .coffee-menu-wrapper {
     flex-direction: column;
+  }
+  .coffee-menu-column-right{
+    margin-top: 40px;
   }
 }
