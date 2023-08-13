@@ -348,7 +348,7 @@ a.menu:hover {
   height: 555px;
   display: flex;
   flex-direction: row;
-  justify-content: center safe;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   height: auto;
@@ -357,38 +357,26 @@ a.menu:hover {
   gap: 220px;
 }
 
-.favorites-image-item0 {
-  width: 530px;
-  height: 555px;
-}
-
 .book-wrapper {
+  position: relative;
+  display: inline-block;
   width: 530px;
   height: 555px;
-  display: inline;
-  position0: relative;
   border: 0.50px black solid;
-  margin-left: 20px;
-  margin-right: 58px;
 }
 
 .book-image {
+  position: absolute;
+  bottom: -1px;
+  right: -50px;
   width: 200px;
   height: 300px;
-  position: relative;
-  z-index: 2;
-  overflow-clip-margin: content-box;
-  overflow: clip;
-  top: -200px;
-  left: 380px;
 }
 
 .book-button {
-  position: relative;
-  overflow-clip-margin: content-box;
-  overflow: clip;
-  top: -200px;
-  left: 380px;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
   width: 75px;
   height: 30px;
   border-radius: 2px;
@@ -416,7 +404,6 @@ a.menu:hover {
 }
 
 .book-staff {
-  position: static;
   margin-top: 15px;
   margin-left: 15px;
   color: black;
@@ -479,10 +466,6 @@ a.menu:hover {
   margin-left: auto;
   margin-right: auto;
   /*width: 1440px;*/
-  display0: inline-flex;
-  flex-direction0: column;
-  justify-content0: space-between;
-  align-items0: center;
   /*height: 781px;*/
   padding-top: 60px;
 }
@@ -1001,21 +984,12 @@ a.menu:hover {
   .section-favorites0 {
     margin-top: 60px;
   }
-  .favorites-books{
+  .favorites-books {
     flex-direction: column;
+    justify-content: center;
+    gap: 40px;
   }
-
-
-
   .coffee-menu-wrapper {
     flex-direction: column;
   }
-
-  /*  .pic-user {
-    display: none;
-  }
-  .nav ul {
-    flex-direction: column;
-  }
-*/
 }
