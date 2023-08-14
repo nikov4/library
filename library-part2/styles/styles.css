@@ -665,7 +665,7 @@ a.menu:hover {
   font-weight: 400;
   letter-spacing: 0.60px;
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 .find-form-wrapper {
@@ -1023,6 +1023,7 @@ a.menu:hover {
   }
   .find-form-header{
     text-align: center;
+    margin-left: 0px;
   }
   .card-find-form {
     margin-top: -30px;
