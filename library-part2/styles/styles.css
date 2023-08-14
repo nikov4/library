@@ -358,7 +358,7 @@ a.menu:hover {
   height: auto;
   margin-left: 25px;
   margin-top: 40px;
-  gap: 40px 285px;
+  gap: 40px 255px;
 }
 
 .book-wrapper {
@@ -367,8 +367,6 @@ a.menu:hover {
   width: 548px;
   height: 554px;
   border: 0.50px black solid;
-  margin-left: -26px;
-  margin-top: -2px;
 }
 
 .book-image {
@@ -658,7 +656,7 @@ a.menu:hover {
   font-weight: 400;
   letter-spacing: 0.60px;
   margin-top: 0px;
-  margin-left: -15px;
+  margin-left: 0px;
 }
 
 .find-form-wrapper {
@@ -667,7 +665,7 @@ a.menu:hover {
   background: white;
   border: 3px #BB945F solid;
   margin-top: 30px;
-  margin-left: -18px;
+  margin-left: 0px;
 }
 
 .find-form-block {
@@ -744,7 +742,7 @@ a.menu:hover {
 .login-form-header {
   align-self: right;
   text-align: right;
-  margin-right: -22px;
+  margin-right: 0px;
   margin-top: -10px;
   color: black;
   font-size: 30px;
