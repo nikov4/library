@@ -657,15 +657,17 @@ a.menu:hover {
   font-family: Inter;
   font-weight: 400;
   letter-spacing: 0.60px;
-  margin-top: 14px;
+  margin-top: 0px;
+  margin-left: -15px;
 }
 
 .find-form-wrapper {
-  width: 600px;
+  width: 589px;
   height: 382px;
   background: white;
   border: 3px #BB945F solid;
-  margin-top: 28px;
+  margin-top: 30px;
+  margin-left: -18px;
 }
 
 .find-form-block {
@@ -677,8 +679,8 @@ a.menu:hover {
 }
 
 .find-form-text {
-  padding-top: 18px;
-  margin-left: 18px;
+  padding-top: 16px;
+  margin-left: 15px;
   color: black;
   font-size: 30px;
   font-family: Forum;
@@ -689,7 +691,7 @@ a.menu:hover {
 
 .find-form-input {
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 18px;
   padding-left: 18px;
   padding-right: 20px;
   border: 0;
@@ -715,6 +717,7 @@ a.menu:hover {
 .find-form-button {
   width: 242px;
   height: 44 px;
+  margin-left: -2px;
   margin-top: 22px;
   padding-top: 8px;
   padding-bottom: 10px;
@@ -741,8 +744,8 @@ a.menu:hover {
 .login-form-header {
   align-self: right;
   text-align: right;
-  margin-right: 0px;
-  margin-top: 1px;
+  margin-right: -22px;
+  margin-top: -10px;
   color: black;
   font-size: 30px;
   font-family: Forum;
@@ -753,8 +756,9 @@ a.menu:hover {
 .login-form-text {
   align-self: right;
   text-align: right;
-  padding-top: 30px;
-  margin-right: -2px;
+  margin-top: 38px;
+  margin-left: 0px;
+  padding-left: 16px;
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -768,7 +772,7 @@ a.menu:hover {
   justify-content: flex-end;
   align-items: flex-end;
   padding-top: 20px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .login-form-button {
