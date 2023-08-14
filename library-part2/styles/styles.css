@@ -358,7 +358,7 @@ a.menu:hover {
   height: auto;
   margin-left: 0px;
   margin-top: 40px;
-  gap: 40px 255px;
+  gap: 40px 280px;
 }
 
 .book-wrapper {
@@ -367,6 +367,8 @@ a.menu:hover {
   width: 548px;
   height: 554px;
   border: 0.50px black solid;
+  margin-left: -26px;
+  margin-top: -2px;
 }
 
 .book-image {
@@ -954,7 +956,7 @@ a.menu:hover {
     margin-bottom: 40px;
   }
   .favorites-books {
-    margin-left: 20px;
+    margin-left: 45px;
   }
 }
 
