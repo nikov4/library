@@ -356,7 +356,7 @@ a.menu:hover {
   align-items: center;
   flex-wrap: wrap;
   height: auto;
-  margin-left: 19px;
+  margin-left: 0px;
   margin-top: 40px;
   gap: 40px 255px;
 }
@@ -952,6 +952,9 @@ a.menu:hover {
   }
   .section-library-card {
     margin-bottom: 40px;
+  }
+  .favorites-books {
+    margin-left: 20px;
   }
 }
 
