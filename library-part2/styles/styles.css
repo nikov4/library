@@ -269,7 +269,7 @@ a.menu:hover {
   justify-content: center;
   align-items: center;
   height: 16px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .pagination-item {
@@ -319,12 +319,15 @@ a.menu:hover {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  margin-left: 20px;
-  padding-top: 20px;
+  margin-left: 16px;
+  margin-top: 42px;
+  gap: 80px;
 }
 
 .season-label {
   color: black;
+  margin-left: 15px;
+  margin-right: 10px;
   font-size: 20px;
   font-family: Inter;
   font-weight: 400;
@@ -332,12 +335,6 @@ a.menu:hover {
 
 .season-wrapper {
   display: inline-flex;
-  margin-right: 12px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 50px;
   cursor: pointer;
 }
 
@@ -367,15 +364,17 @@ a.menu:hover {
 .book-wrapper {
   position: relative;
   display: inline-block;
-  width: 530px;
-  height: 555px;
+  width: 548px;
+  height: 554px;
   border: 0.50px black solid;
+  margin-left: -26px;
+  margin-top: -2px;
 }
 
 .book-image {
   position: absolute;
   bottom: -1px;
-  right: -40px;
+  right: -41px;
   width: 200px;
   height: 300px;
 }
@@ -411,8 +410,8 @@ a.menu:hover {
 }
 
 .book-staff {
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 14px;
+  margin-left: 20px;
   color: black;
   font-size: 20px;
   font-family: Forum;
@@ -424,15 +423,15 @@ a.menu:hover {
 
 .book-line {
   margin-top: 0px;
-  margin-left: 15px;
+  margin-left: 18px;
   width: 60px;
   height: 0px;
   border: 0.50px #BB945F solid;
 }
 
 .book-name {
-  margin-top: 20px;
-  margin-left: 15px;
+  margin-top: 18px;
+  margin-left: 20px;
   color: black;
   font-size: 15px;
   font-family: Inter;
@@ -443,7 +442,7 @@ a.menu:hover {
 }
 
 .book-autor {
-  margin-left: 15px;
+  margin-left: 20px;
   color: black;
   font-size: 15px;
   font-family: Inter;
@@ -454,8 +453,8 @@ a.menu:hover {
 }
 
 .book-summary {
-  margin-left: 15px;
   margin-top: 20px;
+  margin-left: 20px;
   width: 355px;
   color: black;
   font-size: 15px;
@@ -622,7 +621,7 @@ a.menu:hover {
 
 .contacts-map {
   align-self: center;
-  margin-top: 11px;
+  margin-top: 40px;
   height: 414px;
   margin-right: 20px;
   margin-left: 20px;
@@ -658,15 +657,17 @@ a.menu:hover {
   font-family: Inter;
   font-weight: 400;
   letter-spacing: 0.60px;
-  margin-top: 14px;
+  margin-top: 0px;
+  margin-left: -15px;
 }
 
 .find-form-wrapper {
-  width: 600px;
+  width: 589px;
   height: 382px;
   background: white;
   border: 3px #BB945F solid;
-  margin-top: 28px;
+  margin-top: 30px;
+  margin-left: -18px;
 }
 
 .find-form-block {
@@ -678,8 +679,8 @@ a.menu:hover {
 }
 
 .find-form-text {
-  padding-top: 18px;
-  margin-left: 18px;
+  padding-top: 16px;
+  margin-left: 15px;
   color: black;
   font-size: 30px;
   font-family: Forum;
@@ -690,7 +691,7 @@ a.menu:hover {
 
 .find-form-input {
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 18px;
   padding-left: 18px;
   padding-right: 20px;
   border: 0;
@@ -716,6 +717,7 @@ a.menu:hover {
 .find-form-button {
   width: 242px;
   height: 44 px;
+  margin-left: -2px;
   margin-top: 22px;
   padding-top: 8px;
   padding-bottom: 10px;
@@ -742,8 +744,8 @@ a.menu:hover {
 .login-form-header {
   align-self: right;
   text-align: right;
-  margin-right: 0px;
-  margin-top: 1px;
+  margin-right: -22px;
+  margin-top: -10px;
   color: black;
   font-size: 30px;
   font-family: Forum;
@@ -754,8 +756,9 @@ a.menu:hover {
 .login-form-text {
   align-self: right;
   text-align: right;
-  padding-top: 30px;
-  margin-right: -2px;
+  margin-top: 38px;
+  margin-left: 0px;
+  padding-left: 16px;
   color: black;
   font-size: 20px;
   font-family: Inter;
@@ -769,7 +772,7 @@ a.menu:hover {
   justify-content: flex-end;
   align-items: flex-end;
   padding-top: 20px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .login-form-button {
@@ -967,7 +970,7 @@ a.menu:hover {
   }
   .about-images {
     justify-content: center;
-    margin-left: 0px;
+    margin-left: 10px;
     margin-right: 0px;
   }
   .about-images-carret-left {
