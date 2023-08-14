@@ -22,6 +22,10 @@ p, h2, ul, form {
   margin: 0;
 }
 
+/*.form {
+  display: inline;
+}*/
+
 img {
   max-width: 100%;
   height: auto;
@@ -238,13 +242,15 @@ a.menu:hover {
 .about-images-carret-left{
   display: none;
   position: relative;
-  margin-right: 24px;
+  margin-right: 36px;
+  margin-top: 38px;
 }
 
 .about-images-carret-right{
   display: none;
   position: relative;
   margin-left: 24px;
+  margin-top: 38px;
 }
 
 .slide1, .slide2, .slide3 {
@@ -300,7 +306,7 @@ a.menu:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .favorites-text {
@@ -411,7 +417,7 @@ a.menu:hover {
 
 .book-staff {
   margin-top: 14px;
-  margin-left: 20px;
+  margin-left: 18px;
   color: black;
   font-size: 20px;
   font-family: Forum;
@@ -646,6 +652,7 @@ a.menu:hover {
 }
 
 .card-find-form {
+  margin-top: -30px;
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -718,7 +725,7 @@ a.menu:hover {
   width: 242px;
   height: 44 px;
   margin-left: 0px;
-  margin-top: 22px;
+  margin-top: 25px;
   padding-top: 8px;
   padding-bottom: 10px;
   border-radius: 2px;
@@ -745,7 +752,7 @@ a.menu:hover {
   align-self: right;
   text-align: right;
   margin-right: 0px;
-  margin-top: -10px;
+  margin-top: -8px;
   color: black;
   font-size: 30px;
   font-family: Forum;
@@ -771,6 +778,7 @@ a.menu:hover {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-left: 4px;
   padding-top: 20px;
   margin-top: 20px;
 }
@@ -992,6 +1000,10 @@ a.menu:hover {
   .pag-item4, .pag-item5 {
     display: inline;
   }
+  .book-wrapper {
+    margin-left: -22px;
+    margin-top: -4px;
+  }
   .favorites-books {
     flex-direction: column;
     justify-content: center;
@@ -1003,6 +1015,7 @@ a.menu:hover {
   }
   .coffee-menu-column-right{
     margin-top: 40px;
+    margin-right: 20px;
   }
   .contacts-wrapper {
     flex-direction: column;
@@ -1011,11 +1024,18 @@ a.menu:hover {
   .find-form-header{
     text-align: center;
   }
+  .card-find-form {
+    margin-top: -30px;
+    margin-left: 0px;
+  }
   .login-form-header {
     text-align: center;
+    padding-left: 25px;
   }
   .login-form-text {
     text-align: center;
+    padding-left: 11px;
+    margin-left: 0px;
   }
   .login-form-submit-wrapper {
     justify-content: center;
