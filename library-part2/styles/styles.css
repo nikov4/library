@@ -923,6 +923,11 @@ a.menu:hover {
 }
 
 .pics-hamburger {
+  /*
+  display: block;
+  position: absolute;
+  z-index: 5;
+  */
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -940,7 +945,7 @@ a.menu:hover {
   display: block;
   position: absolute;
   top: 0px;
-  z-index: 999;
+  z-index: 3;
   right: -332px;
   width: 332px;
   height: 570px;
@@ -962,7 +967,7 @@ a.menu:hover {
   align-items: center;
 }
 
-.mobile-links {
+.mobile-link {
   color: white;
   font-family: Inter;
   font-size: 20px;
