@@ -19,9 +19,9 @@ function showhide(toShow) {
 
 // menu_showhide показываем и прячем меню
 function menu_showhide() {
-  var m_menu = document.querySelector('.mobile-menu');
-  var m_menu_open = 'mobile-menu__open';
-  var m_hamurger = document.querySelector('.hamburger');
+  let m_menu = document.querySelector('.mobile-menu');
+  let m_menu_open = 'mobile-menu__open';
+  let m_hamurger = document.querySelector('.hamburger');
   if (m_menu){
     m_menu.addEventListener('click', function() {
       m_menu.classList.toggle(m_menu_open);
@@ -36,7 +36,7 @@ function menu_showhide() {
 
 // menu_hide прячем меню
 function menu_hide() {
-  var m_menu = document.querySelector('.mobile-menu');
-  var m_menu_open = 'mobile-menu__open';
+  let m_menu = document.querySelector('.mobile-menu');
+  let m_menu_open = 'mobile-menu__open';
   m_menu.classList.remove(m_menu_open);
 }
