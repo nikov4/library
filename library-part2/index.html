@@ -37,9 +37,10 @@
           <div id="mobile-menu" class="mobile-menu">
             <div class="pics-hamburger">
               <a href="#"><img class="pic-user-mobile" src="./images/pic-user.png" width="28" height="28" alt="User login"></a>
-              <a href="javascript:hide('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>
+              <!--<a href="javascript:show('mobile-menu');"><img class="pic-hamburger-open" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>-->
+              <a href="javascript:menu_showhide();"><img class="pic-hamburger-open" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>
             </div>
-            <div class="mobile-wrapper">
+            <div class="mobile-links-wrapper">
               <div class="mobile-links"><a class="menu" href="#about" onclick="hide('mobile-menu');return true">About</a></div>
               <div class="mobile-links"><a class="menu" href="#favorites" onclick="hide('mobile-menu');return true">Favorites</a></div>
               <div class="mobile-links"><a class="menu" href="#coffee-shop" onclick="hide('mobile-menu');return true">Coffee shop</a></div>
@@ -52,7 +53,8 @@
 
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
           <a href="#"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a>
-          <div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-user" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>
+          <!--<div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>-->
+          <div class="hamburger"><a href="javascript:menu_showhide();"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>
         </div>
       </header>
 
@@ -119,7 +121,7 @@
                 <input class="season-radio" type="radio" name="season" id="summer" value="summer">
                 <span class="season-label">Summer</span>
               </label>
-              <label class="season-wrapper" for="season">
+              <label class="season-wrapper" for="autumn">
                 <input class="season-radio" type="radio" name="season" id="autumn" value="autumn">
                 <span class="season-label">Autumn</span>
               </label>
