@@ -23,12 +23,16 @@ function test3 () {
 function test4 () {
   const test4 = document.getElementById('test-4');
   const ctrl4 = document.getElementById('ctrl-4');
-  test4.addEventListener("click", function() {
-    test4.classList.toggle('box-4__open');
-  });
-  ctrl4.addEventListener("click", function() {
-    test4.classList.toggle('box-4__open');
-  });
+  if (test4){
+    test4.addEventListener("click", function() {
+      test4.classList.toggle('box-4__open');
+    });
+  }
+  if (ctrl4) {
+    ctrl4.addEventListener("click", function() {
+      test4.classList.toggle('box-4__open');
+    });
+  }
 }
 
 /*

@@ -1,7 +1,6 @@
 html {
   scroll-behavior: smooth;
   width: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -72,6 +71,7 @@ a.menu:hover {
   margin-left: auto;
   margin-right: auto;
   background: white;
+  overflow: hidden;
 }
 
 .header {
@@ -92,7 +92,6 @@ a.menu:hover {
 }
 
 .header-right {
-  overflow: hidden;
   display: inline-flex;
   justify-content: right;
   margin-top: 20px;

@@ -15,7 +15,7 @@
     <title>Brooklyn Public Library</title>
   </head>
 
-  <body>
+  <body onload="menu_showhide();">
     <div class="container">
       <header class="header">
         <div class="header-left">
@@ -38,14 +38,14 @@
             <div class="pics-hamburger">
               <a href="#"><img class="pic-user-mobile" src="./images/pic-user.png" width="28" height="28" alt="User login"></a>
               <!--<a href="javascript:show('mobile-menu');"><img class="pic-hamburger-open" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>-->
-              <a href="javascript:menu_showhide();"><img class="pic-hamburger-open" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>
+              <a href="#"><img class="pic-hamburger-open" src="./images/pic-burger-open.png" width="32" height="32" alt="Hamburger menu"></a>
             </div>
             <div class="mobile-links-wrapper">
-              <div class="mobile-links"><a class="menu" href="#about" onclick="hide('mobile-menu');return true">About</a></div>
-              <div class="mobile-links"><a class="menu" href="#favorites" onclick="hide('mobile-menu');return true">Favorites</a></div>
-              <div class="mobile-links"><a class="menu" href="#coffee-shop" onclick="hide('mobile-menu');return true">Coffee shop</a></div>
-              <div class="mobile-links"><a class="menu" href="#contacts" onclick="hide('mobile-menu');return true">Contacts</a></div>
-              <div class="mobile-links"><a class="menu" href="#library-card" onclick="hide('mobile-menu');return true">Library Card</a></div>
+              <div class="mobile-links"><a class="menu" href="#about" onclick="menu_hide();">About</a></div>
+              <div class="mobile-links"><a class="menu" href="#favorites" onclick="menu_hide()">Favorites</a></div>
+              <div class="mobile-links"><a class="menu" href="#coffee-shop" onclick="menu_hide()">Coffee shop</a></div>
+              <div class="mobile-links"><a class="menu" href="#contacts" onclick="menu_hide()">Contacts</a></div>
+              <div class="mobile-links"><a class="menu" href="#library-card" onclick="menu_hide()">Library Card</a></div>
             </div>
           </div>
 
@@ -54,11 +54,11 @@
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
           <a href="#"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a>
           <!--<div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>-->
-          <div class="hamburger"><a href="javascript:menu_showhide();"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>
+          <div class="hamburger"><a href="#"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>
         </div>
       </header>
 
-      <main class="main" onclick="hide('mobile-menu');return false">
+      <main class="main" onclick="menu_hide()">
 
         <section class="section-welcome">
           <div class="welcome-overlay"></div>

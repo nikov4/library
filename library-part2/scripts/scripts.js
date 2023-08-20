@@ -12,26 +12,31 @@ function hide(toHide) {
 
 // show / hide показываем и прячем объекты
 function showhide(toShow) {
-  var t_block = document.getElementById(toShow);
-  var t_block_open = toShow + '__open';
-  t_block.addEventListener('click', () => {
-    t_block.classList.toggle(t_block_open);
-  });
-  //var t_show = document.querySelector("." + toShow);
-  //if(t_show.style.display == "none") t_show.style.display = "block";
-	//else t_show.style.display = "none";
+  var t_show = document.querySelector("." + toShow);
+  if(t_show.style.display == "none") t_show.style.display = "block";
+	else t_show.style.display = "none";
 }
 
+// menu_showhide показываем и прячем меню
 function menu_showhide() {
-  var m_menu = document.getElementById('mobile-menu');
+  var m_menu = document.querySelector('.mobile-menu');
   var m_menu_open = 'mobile-menu__open';
   var m_hamurger = document.querySelector('.hamburger');
-  //var m_hamurger_active = 'hamburger__active';
-  m_menu.addEventListener('click', () => {
-    m_menu.classList.toggle(m_menu_open);
-  });
-  m_hamurger.addEventListener('click', () => {
-    m_menu.classList.toggle(m_menu_open);
-  });
+  if (m_menu){
+    m_menu.addEventListener('click', function() {
+      m_menu.classList.toggle(m_menu_open);
+    });
+  }
+  if (m_hamurger){
+    m_hamurger.addEventListener('click', function() {
+      m_menu.classList.toggle(m_menu_open);
+    });
+  }
+}
 
+// menu_hide прячем меню
+function menu_hide() {
+  var m_menu = document.querySelector('.mobile-menu');
+  var m_menu_open = 'mobile-menu__open';
+  m_menu.classList.remove(m_menu_open);
 }
