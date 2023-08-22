@@ -15,7 +15,7 @@
     <title>Brooklyn Public Library</title>
   </head>
 
-  <body onload="menu_showhide();">
+  <body onload="menu_showhide(); carousel();">
     <div class="container">
       <header class="header">
         <div class="header-left">
@@ -58,7 +58,7 @@
         </div>
       </header>
 
-      <main class="main" onclick="menu_hide()">
+      <main class="main" onclick="menu_hide();">
 
         <section class="section-welcome">
           <div class="welcome-overlay"></div>
@@ -74,15 +74,17 @@
           <div class="title-line"></div>
           <div class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</div>
           <div class="about-images">
-            <div class="about-images-carret-left"><img src="./images/carret_left.svg" width="24" height="24" alt="Previous slide"></div>
-            <div class="about-image-item0 slide1"><img src="./images/slider_image_01.jpg" width="450" height="560" alt="image 1"></div>
-            <div class="about-image-item0 slide2"><img src="./images/slider_image_02.jpg" width="450" height="560" alt="image 2"></div>
-            <div class="about-image-item0 slide3"><img src="./images/slider_image_03.jpg" width="450" height="560" alt="image 3"></div>
-            <div class="about-image-item0 slide4"><img src="./images/slider_image_04.jpg" width="450" height="560" alt="image 4"></div>
-            <div class="about-image-item0 slide5"><img src="./images/slider_image_05.jpg" width="450" height="560" alt="image 5"></div>
-            <div class="about-images-carret-right"><img src="./images/carret_right.svg" width="24" height="24" alt="Nexr slide"></div>
+            <div class="about-carretes about-carret-left"><img src="./images/carret_left.svg" width="24" height="24" alt="Previous slide"></div>
+            <div class="carousel about-images">
+              <div class="carousel-slide slide1"><img src="./images/slider_image_01.jpg" width="450" height="560" alt="image 1"></div>
+              <div class="carousel-slide slide2"><img src="./images/slider_image_02.jpg" width="450" height="560" alt="image 2"></div>
+              <div class="carousel-slide slide3"><img src="./images/slider_image_03.jpg" width="450" height="560" alt="image 3"></div>
+              <div class="carousel-slide slide4"><img src="./images/slider_image_04.jpg" width="450" height="560" alt="image 4"></div>
+              <div class="carousel-slide slide5"><img src="./images/slider_image_05.jpg" width="450" height="560" alt="image 5"></div>
+            </div>
+            <div class="about-carretes about-carret-right"><img src="./images/carret_right.svg" width="24" height="24" alt="Nexr slide"></div>
           </div>
-          <div class="about-pagination">
+          <div class="pagination">
             <div class="pagination-item-wrapper pag-item1">
               <div class="pagination-item pagination-item-active"></div>
             </div>
