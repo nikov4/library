@@ -271,7 +271,6 @@ a.menu:hover {
 
 .slide-hide {
   visibility: hidden;
-  /*display: none;*/
   /*opacity: 0;*/
   transition-delay: 1s;
   transition-timing-function: ease-in-out;
@@ -321,6 +320,7 @@ a.menu:hover {
 
 .section-favorites {
   width: 100%;
+  height: 1439px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
@@ -370,7 +370,12 @@ a.menu:hover {
   padding-bottom: 5px;
 }
 
+.favorites-container {
+  position: relative;
+}
+
 .favorites-books {
+  position: absolute;
   width: 98%;
   height: 555px;
   display: flex;
@@ -382,6 +387,15 @@ a.menu:hover {
   margin-left: 0px;
   margin-top: 40px;
   gap: 40px 245px;
+  transition: opacity 1s;
+}
+
+.favorites-slide-hide {
+  opacity: 0;
+}
+
+.favorites-slide-active {
+  opacity: 1;
 }
 
 .book-wrapper {
@@ -494,7 +508,7 @@ a.menu:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 
 .coffee-shop-text {
@@ -1062,6 +1076,10 @@ a.menu:hover {
   .book-wrapper {
     margin-left: -22px;
     margin-top: 0px;
+  }
+
+  .section-favorites {
+    height: 2629px;
   }
 
   .favorites-books {

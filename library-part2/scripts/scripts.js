@@ -41,7 +41,7 @@ function menu_hide() {
   m_menu.classList.remove(m_menu_open);
 }
 
-// карусель
+// carousel карусель
 function carousel (toJump){
   let carousel = document.querySelector('.carousel');
   let car_total = carousel.getElementsByClassName('carousel-slide').length;
@@ -97,7 +97,7 @@ function carousel (toJump){
     carret_right.style.cursor = 'default';
   }
 
-  // carousel
+  // slides
   let car_offset = 0;
   if (car_width > 1024){
     // desktop
@@ -131,3 +131,33 @@ function carousel (toJump){
   document.querySelector('.carousel').style.transform = 'translateX('+car_offset+'px)';
   console.log('car_offset='+car_offset+'\n','jump='+jump+'\n','car_width='+car_width+'\n','car_total='+car_total+'\n');
 }
+
+// slider слайдер
+function slider (toSlide){
+
+  let current_season = toSlide;
+  let slider_timeout;
+  if (typeof current_season == 'undefined'){
+    current_season = 'winter'
+    slider_timeout = 0;
+  }
+  let seasons = ['winter', 'spring', 'summer', 'autumn'];
+
+  for (let i = 0; i < seasons.length; i++) {
+    let this_slide = document.querySelector('.slider-books-'+seasons[i]);
+    if (seasons[i] == current_season){
+      if (slider_timeout == 0){
+        //this_slide.style.display = '';
+        this_slide.classList.remove('favorites-slide-hide');
+      } else {
+        setTimeout(() => this_slide.classList.remove('favorites-slide-hide'), 1000);
+      }
+    } else {
+      //this_slide.style.display = 'none';
+      this_slide.classList.add('favorites-slide-hide');
+    }
+  }
+
+}
+
+//
