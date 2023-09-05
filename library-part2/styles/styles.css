@@ -431,6 +431,7 @@ a.menu:hover {
   font-weight: 700;
   letter-spacing: 1px;
   background: white;
+  z-index: 2;
 }
 
 .book-button:hover {
