@@ -387,15 +387,34 @@ a.menu:hover {
   margin-left: 0px;
   margin-top: 40px;
   gap: 40px 245px;
-  transition: opacity 1s;
+  /*transition: opacity 1s;*/
+  opacity: 0;
+}
+
+.favorites-slide-show {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }
 
 .favorites-slide-hide {
   opacity: 0;
+  animation-name: fadeOut;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
 }
 
-.favorites-slide-active {
-  opacity: 1;
+@keyframes fadeOut {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
 }
 
 .book-wrapper {
