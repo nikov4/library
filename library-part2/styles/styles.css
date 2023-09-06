@@ -953,12 +953,12 @@ a.user {
 }
 
 .pic-user {
-  margin-top: 5px;
-  margin-right: 15px;
+  margin-top: 11px;
+  margin-right: 20px;
 }
 
 .pic-hamburger {
-  margin-top: 5px;
+  margin-top: 11px;
   margin-right: 15px;
 }
 
@@ -1033,10 +1033,9 @@ a.user {
 .profile-menu {
   display: block;
   position: absolute;
-  top: 0px;
   z-index: 3;
   right: 90px;
-  top: 53px;
+  top: 60px;
   width: 80px;
   height: 0px;
   overflow: hidden;
@@ -1101,6 +1100,10 @@ a.user {
 
   .section-library-card {
     margin-bottom: 40px;
+  }
+
+  .profile-menu {
+    right: 10px;
   }
 
 }
