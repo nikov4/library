@@ -30,6 +30,19 @@ function menu_showhide(toButton,toMenu) {
   if (m_button){
     m_button.addEventListener('click', function() {
       m_menu.classList.toggle(m_menu_open);
+
+      // swap hamburger image
+      let hamburger_menu = document.getElementsByClassName('mobile-menu__open').length;
+      let hamburger_pics = document.getElementsByClassName('pic-hamburger');
+      let hamburger_pic = hamburger_pics[0];
+      if (hamburger_menu > 0){
+        hamburger_pic.removeAttribute('src');
+        hamburger_pic.setAttribute('src', './images/pic-burger-open.png');
+      } else{
+        hamburger_pic.removeAttribute('src');
+        hamburger_pic.setAttribute('src', './images/pic-burger.png');
+      }
+
     });
   }
 }
