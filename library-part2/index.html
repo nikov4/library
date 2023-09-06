@@ -15,7 +15,32 @@
     <title>Brooklyn Public Library</title>
   </head>
 
-  <body onload="menu_showhide(); carousel(); slider();">
+  <body onload="menu_showhide('hamburger','mobile-menu'); menu_showhide('profile','profile-menu'); carousel(); slider();">
+
+    <!-- profile menu -->
+    <div id="profile-menu" class="profile-menu">
+      <div class="profile-container">
+        <div class="profile-menu-header">Profile </div>
+        <div class="profile-menu-line"></div>
+        <ul class="profile-menu-links">
+          <li><a class="user" href="#">Log In</a></li>
+          <li><a class="user" href="#">Register</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- profile menu with auth -->
+    <div id="profile-menu-auth" class="profile-menu">
+      <div class="profile-container">
+        <div class="profile-menu-header">Profile </div>
+        <div class="profile-menu-line"></div>
+        <ul class="profile-menu-links">
+          <li><a class="user" href="#">My profile</a></li>
+          <li><a class="user" href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="container">
       <header class="header">
         <div class="header-left">
@@ -52,13 +77,13 @@
           <!-- hamburger menu -->
 
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
-          <a href="#"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a>
+          <div class="profile"><a href="#"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
           <!--<div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>-->
           <div class="hamburger"><a href="#"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>
         </div>
       </header>
 
-      <main class="main" onclick="menu_hide();">
+      <main class="main" onclick="menu_hide('mobile-menu');menu_hide('profile-menu');">
 
         <section class="section-welcome">
           <div class="welcome-overlay"></div>

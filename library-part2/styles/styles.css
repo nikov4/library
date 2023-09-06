@@ -47,6 +47,10 @@ a.menu:hover {
   cursor: pointer;
 }
 
+a.user {
+  text-decoration: none;
+}
+
 .bold {
   font-weight: 700;
 }
@@ -1024,6 +1028,63 @@ a.menu:hover {
   font-weight: 400;
   line-height: 50px;
   margin-top: 30px;
+}
+
+.profile-menu {
+  display: block;
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  right: 90px;
+  top: 53px;
+  width: 80px;
+  height: 0px;
+  overflow: hidden;
+  background: white;
+  transition-duration: 1s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.profile-menu__open {
+  height: 115px;
+  transition: height 1s;
+}
+
+.profile-container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.profile-menu-header {
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.profile-menu-line {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40px;
+  height: 1px;
+  margin-top: 5px;
+  background: #BB945F;
+}
+
+.profile-menu-links {
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 10px;
+  line-height: 30px;
 }
 
 @media (min-width: 1025px) {

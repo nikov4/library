@@ -18,27 +18,27 @@ function showhide(toShow) {
 }
 
 // menu_showhide показываем и прячем меню
-function menu_showhide() {
-  let m_menu = document.querySelector('.mobile-menu');
-  let m_menu_open = 'mobile-menu__open';
-  let m_hamurger = document.querySelector('.hamburger');
+function menu_showhide(toButton,toMenu) {
+  let m_menu = document.querySelector('.'+toMenu);
+  let m_menu_open = toMenu+'__open';
+  let m_button = document.querySelector('.'+toButton);
   if (m_menu){
     m_menu.addEventListener('click', function() {
       m_menu.classList.toggle(m_menu_open);
     });
   }
-  if (m_hamurger){
-    m_hamurger.addEventListener('click', function() {
+  if (m_button){
+    m_button.addEventListener('click', function() {
       m_menu.classList.toggle(m_menu_open);
     });
   }
 }
 
 // menu_hide прячем меню
-function menu_hide() {
-  let m_menu = document.querySelector('.mobile-menu');
-  let m_menu_open = 'mobile-menu__open';
-  m_menu.classList.remove(m_menu_open);
+function menu_hide(toMenu) {
+  let h_menu = document.querySelector('.'+toMenu);
+  let h_menu_open = toMenu+'__open';
+  h_menu.classList.remove(h_menu_open);
 }
 
 // carousel карусель
