@@ -13,8 +13,11 @@ function hide(toHide) {
 // show / hide показываем и прячем объекты
 function showhide(toShow) {
   var t_show = document.querySelector("." + toShow);
-  if(t_show.style.display == "none") t_show.style.display = "block";
-	else t_show.style.display = "none";
+  if(t_show.style.display == "none" || t_show.style.display == "") {
+    t_show.style.display = "block";
+  } else {
+    t_show.style.display = "none";
+  }
 }
 
 // menu_showhide показываем и прячем меню
@@ -37,7 +40,7 @@ function menu_showhide(toButton,toMenu) {
       let hamburger_pic = hamburger_pics[0];
       if (hamburger_open > 0){
         hamburger_pic.setAttribute('src', './images/pic-burger-open.png');
-      } else{
+      } else {
         hamburger_pic.setAttribute('src', './images/pic-burger.png');
       }
 
@@ -52,6 +55,21 @@ function menu_hide(toMenu) {
   h_menu.classList.remove(h_menu_open);
 }
 
+// modal_showhide показываем и прячем модальные окна
+function modal_showhide (toModal){
+  let current_modal = 'modal-'+toModal;
+  showhide('modal-wrapper');
+  showhide(current_modal);
+}
+
+// modal_switch переключение модальных окон
+function modal_switch (fromModal,toModal){
+  let from_modal = 'modal-'+fromModal;
+  let to_modal = 'modal-'+toModal;
+  hide(from_modal);
+  show(to_modal);
+}
+
 // carousel карусель
 function carousel (toJump){
   let carousel = document.querySelector('.carousel');
@@ -62,8 +80,6 @@ function carousel (toJump){
   let jump = toJump;
   if (typeof jump == 'undefined'){jump = 1}
   jump = Number(jump);
-  //alert('jump='+jump);
-
   let car_width = window.outerWidth;
   window.addEventListener('resize', function() {
     car_width = window.outerWidth;
@@ -114,7 +130,7 @@ function carousel (toJump){
     // desktop
     if (jump > 1){
       car_offset = -1*((jump-1)*475);
-    } else{
+    } else {
       car_offset = 0;
     }
   } else {
@@ -176,4 +192,20 @@ function slider (toSlide){
   }
 }
 
-//
+// form_check проверка форм
+function form_check (toForm){
+  //const current_form = toForm+'_form';
+  if (toForm == 'login'){
+    // check login form
+    let mail = document.getElementById('login_mail').value;
+    let password = document.getElementById('login_password').value;
+    //login_form.submit();
+  } else if (toForm == 'register'){
+    // check register form
+    //register_form.submit();
+  } else if (toForm == 'buy'){
+    // check buy a card form
+    //buy_form.submit();
+  }
+
+}
