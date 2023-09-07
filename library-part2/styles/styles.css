@@ -1153,6 +1153,11 @@ a.user {
   font-weight: 700;
   letter-spacing: 1px;
   margin-top: 10px;
+  background: white;
+}
+
+.logon-button:hover {
+  background: #BB945F;
 }
 
 .logon-alternate-text {
@@ -1184,6 +1189,81 @@ a.user {
   height: 540px;
 }
 
+.svg-fill-white {
+  fill: white;
+}
+
+.buy-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background: #0C0C0E;
+}
+
+.buy-title-text {
+  color: #FFF;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.buy-close-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  text-align: right;
+  right: 20px;
+  top: 25px;
+}
+
+.buy-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.buy-left-side {
+  width: 200px;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.buy-right-side {
+  width: 330px;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+
+.buy-exp-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.buy-exp-input {
+  width: 45px;
+  height: 20px;
+  border: 0.50px #BB945F solid;
+}
+
+.buy-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
 .buy-price {
   color: #0C0C0E;
   font-family: Inter;
@@ -1193,6 +1273,16 @@ a.user {
   line-height: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.buy-text {
+  color: #8E8E8E;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
 }
 
 .modal-profile {

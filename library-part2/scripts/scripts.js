@@ -199,13 +199,13 @@ function form_check (toForm){
     // check login form
     let mail = document.getElementById('login_mail').value;
     let password = document.getElementById('login_password').value;
-    //login_form.submit();
+    login_form.submit();
   } else if (toForm == 'register'){
     // check register form
-    //register_form.submit();
+    register_form.submit();
   } else if (toForm == 'buy'){
     // check buy a card form
-    //buy_form.submit();
+    buy_form.submit();
   }
 
 }

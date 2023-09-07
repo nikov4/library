@@ -63,31 +63,37 @@
 
         <!-- buy a card -->
         <div class="modal-window modal-buy">
-          <div class="modal-close-button"><a href="#" onclick="modal_showhide('buy');"><img src="./images/close_btn.svg" width="15" height="15" alt="Close"></a></div>
+          <div class="buy-title-container">
+            <div class="buy-title-text">Buy a library card</div>
+            <div class="buy-close-button"><a href="#" onclick="modal_showhide('buy');"><img src="./images/close_btn_white.svg" width="15" height="15" alt="Close"></a></div>
+          </div>
           <div class="buy-container">
             <div class="buy-left-side">
               <form class="logon-form" name="buy_form" action="#">
                 <div class="logon-input-text">Bank card number</div>
                 <input class="logon-input" type="text" name="buy_card_number" id="buy_card_number">
                 <div class="logon-input-text">Expiration code</div>
-                <input class="logon-input" type="text" name="buy_card_mon" id="buy_card_mon">
-                <input class="logon-input" type="text" name="buy_card_year" id="buy_card_year">
+                <div class="buy-exp-container">
+                  <input class="buy-exp-input" type="text" name="buy_card_mon" id="buy_card_mon" maxlength="2" size="2">
+                  <input class="buy-exp-input" type="text" name="buy_card_year" id="buy_card_year" maxlength="4" size="4">
+                </div>
                 <div class="logon-input-text">CVC</div>
-                <input class="logon-input" type="text" name="buy_card_cvc" id="buy_card_cvc">
+                <input class="buy-exp-input" type="text" name="buy_card_cvc" id="buy_card_cvc">
                 <div class="logon-input-text">Cardholder name</div>
                 <input class="logon-input" type="text" name="buy_card_holder" id="buy_card_holder">
                 <div class="logon-input-text">Postal code</div>
                 <input class="logon-input" type="text" name="buy_card_postal" id="buy_card_postal">
                 <div class="logon-input-text">City / Town</div>
                 <input class="logon-input" type="text" name="buy_card_city" id="buy_card_city">
-                <div class="buy-bottom">
-                  <button class="logon-button" type="button" onclick="form_check('buy')">Buy</button>
+                <div class="buy-price-container">
+                  <div><button class="logon-button" type="button" onclick="form_check('buy')">Buy</button></div>
                   <div class="buy-price">$ 25.00</div>
                 </div>
-                <div class="buy-right-side">
-                  <div class="buy-text"></div>
-                </div>
               </form>
+            </div>
+            <div class="buy-right-side">
+              <div class="buy-text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+              </div>
             </div>
           </div>
         </div>
@@ -541,8 +547,8 @@
                 <div class="login-form-text">You will be able to see a reader card after logging into account or you can register a new account</div>
                 <div class="login-form-wrapper">
                   <div class="login-form-submit-wrapper">
-                    <button class="login-form-button" type="button" id="sign_up">Sign Up</button>
-                    <button class="login-form-button" type="button" id="login_in">Log in</button>
+                    <button class="login-form-button" type="button" id="sign_up" onclick="modal_showhide('register');">Sign Up</button>
+                    <button class="login-form-button" type="button" id="login_in" onclick="modal_showhide('login');">Log in</button>
                   </div>
                 </div>
               </div>
