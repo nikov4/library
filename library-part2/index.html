@@ -460,12 +460,114 @@
         <div class="footer-container">
           <div class="footer-year">2023</div>
           <div class="footer-school"><a class="footer-link" href="https://rs.school/js-stage0/">The Rolling Scopes School</a></div>
-          <div class="footer-student"><a class="footer-link" href="https://github.com/nikov4">nikov4</a></div>
+          <div class="footer-student"><a class="footer-link" href="https://github.com/nikov4">Nikolai O.</a></div>
         </div>
 
       </footer>
 
     </div>
+
+<!-- Modal windows -->
+
+    <!-- login -->
+    <div class="modal-login">
+      <div class="logon-container">
+        <div class="logon-title">Login</div>
+        <form name="login" action="#">
+          <div class="logon-input-text">E-mail or readers card</div>
+          <input type="text" class="logon-input" name="login_mail" id="login_mail">
+          <div class="logon-input-text">Password</div>
+          <input type="password" class="logon-input" name="login_password" id="login_password">
+          <button class="modal-button" type="button">Log In</button>
+          <div class="modal-alternate-text">Don’t have an account?
+            <a class="modal-alternate-link" href="#">Register</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- register -->
+    <div class="modal-register">
+      <div class="logon-container">
+        <div class="logon-title">Register</div>
+        <form name="register" action="#">
+          <div class="logon-input-text">First name</div>
+          <input type="text" class="logon-input" name="register_first_name" id="register_first_name">
+          <div class="logon-input-text">Last name</div>
+          <input type="text" class="logon-input" name="register_last_name" id="register_last_name">
+          <div class="logon-input-text">E-mail</div>
+          <input type="text" class="logon-input" name="register_mail" id="register_mail">
+          <div class="logon-input-text">Password</div>
+          <input type="text" class="logon-input" name="register_password" id="register_password">
+          <button class="modal-button" type="button">Sign Up</button>
+          <div class="modal-alternate-text">Already have an account?
+            <a class="modal-alternate-link" href="#">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- profile -->
+    <div class="modal-profile">
+      <div class="profile-container">
+        <div class="profile-left-side">
+          <div class="profile-initial"></div>
+          <div class="profile-name"></div>
+        </div>
+        <div class="profile-right-side">
+          <div class="profile-title">My profile</div>
+          <div class="profile-statistics-table">
+            <div class="statistics-column">
+              <div class="statistics-parameter">visits</div>
+              <div class="statistics-icon"></div>
+              <div class="statistics-count"></div>
+            </div>
+            <div class="statistics-column">
+              <div class="statistics-parameter">bonuses</div>
+              <div class="statistics-icon"></div>
+              <div class="statistics-count"></div>
+            </div>
+            <div class="statistics-column">
+              <div class="statistics-parameter">Books</div>
+              <div class="statistics-icon"></div>
+              <div class="statistics-count"></div>
+            </div>
+          </div>
+          <div class="profile-books"></div>
+          <div class="profile-books-container"></div>
+          <div class="profile-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- buy a card -->
+    <div class="modal-buy">
+      <div class="buy-container">
+        <div class="buy-left-side">
+          <div class="logon-input-text">Bank card number</div>
+          <input type="text" class="logon-input" name="buy_card_number" id="buy_card_number">
+          <div class="logon-input-text">Expiration code</div>
+          <input type="text" class="logon-input" name="buy_card_mon" id="buy_card_mon">
+          <input type="text" class="logon-input" name="buy_card_year" id="buy_card_year">
+          <div class="logon-input-text">CVC</div>
+          <input type="text" class="logon-input" name="buy_card_cvc" id="buy_card_cvc">
+          <div class="logon-input-text">Cardholder name</div>
+          <input type="text" class="logon-input" name="buy_card_holder" id="buy_card_holder">
+          <div class="logon-input-text">Postal code</div>
+          <input type="text" class="logon-input" name="buy_card_postal" id="buy_card_postal">
+          <div class="logon-input-text">City / Town</div>
+          <input type="text" class="logon-input" name="buy_card_city" id="buy_card_city">
+          <div class="buy-bottom">
+            <button class="modal-button" type="button">Buy</button>
+            <div class="buy-price">City / Town</div>
+          </div>
+        </div>
+        <div class="buy-right-side">
+          <div class="buy-text"></div>
+        </div>
+      </div>
+    </div>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
