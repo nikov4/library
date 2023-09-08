@@ -102,8 +102,8 @@
         <div class="modal-window modal-profile">
           <div class="profile-container">
             <div class="profile-left-side">
-              <div class="profile-initial">JD</div>
-              <div class="profile-name">John Doe</div>
+              <div class="profile-initials"><span id="data_initials_profile"></span></div>
+              <div class="profile-name"><span id="data_name_profile"></span></div>
             </div>
             <div class="profile-right-side">
               <div class="profile-close-button"><a href="#" onclick="modal_showhide('profile');"><img src="./images/close_btn.svg" width="15" height="15" alt="Close"></a></div>
@@ -112,28 +112,29 @@
                 <div class="statistics-column statistics-column-visits">
                   <div class="statistics-parameter">visits</div>
                   <div class="statistics-icon"><img src="./images/stat_union.svg" width="20" height="21" alt="Visits"></div>
-                  <div class="statistics-count"><span id="data_visits"></span></div>
+                  <div class="statistics-count"><span id="data_visits_profile"></span></div>
                 </div>
                 <div class="statistics-column statistics-column-bonuses">
                   <div class="statistics-parameter">bonuses</div>
                   <div class="statistics-icon"><img src="./images/stat_star.svg" width="20" height="21" alt="Bonuses"></div>
-                  <div class="statistics-count"><span id="data_bonuses"></span></div>
+                  <div class="statistics-count"><span id="data_bonuses_profile"></span></div>
                 </div>
                 <div class="statistics-column statistics-column-books">
                   <div class="statistics-parameter">Books</div>
                   <div class="statistics-icon"><img src="./images/stat_book.svg" width="20" height="21" alt="Books"></div>
-                  <div class="statistics-count"><span id="data_count"></span></div>
+                  <div class="statistics-count"><span id="data_books_profile"></span></div>
                 </div>
               </div>
               <div class="profile-books-title">Rented books</div>
               <!--<div class="profile-books-container">-->
-                <ul class="profile-books-container" id="data_titles">
+                <ul class="profile-books-container" id="data_titles_profile">
                 </ul>
               <!--</div>-->
               <div class="profile-card">
+                <input type="hidden" id="data_cardnumber_hidden" value="">
                 <div class="profile-card-text">Card number</div>
-                <div class="profile-card-number"><span id="data_cardnumber">F00234030</span></div>
-                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a></div>
+                <div class="profile-card-number"><span id="data_cardnumber_profile"></span></div>
+                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a><span id="cardnumber_copied"><span></div>
               </div>
             </div>
           </div>
@@ -157,7 +158,7 @@
           </nav>
 
           <!-- user menu -->
-          <div id="user-menu" class="user-menu">
+          <div id="user-menu-noauth" class="user-menu">
             <div class="user-container">
               <div class="user-menu-header">Profile</div>
               <div class="user-menu-line"></div>
@@ -171,9 +172,9 @@
           </div>
 
           <!-- user menu with auth -->
-          <div id="user-menu-auth" class="user-menu">
+          <div id="user-menu-auth" class="user-menu hidden-area">
             <div class="user-container">
-              <div class="user-menu-header">Profile</div>
+              <div class="user-menu-header"><span id="data_cardnumber_menu"></span></div>
               <div class="user-menu-line"></div>
               <ul class="user-menu-links">
                 <li><a class="user-link" href="#" onclick="modal_showhide('profile');">My profile</a></li>
@@ -195,8 +196,7 @@
 
           <!-- menu-icons -->
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
-          <div class="user"><a href="#" onclick="menu_hide('mobile-menu');"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
-          <!--<div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>-->
+          <div class="user"><a href="#" onclick="menu_hide('mobile-menu');" id="data_initials_title"><span class="user-initials pic-user" id="data_initials_menu"></span><img id="user-pic-noauth" class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
           <div class="hamburger"><a href="#" onclick="menu_hide('user-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="34" alt="Hamburger menu"></a></div>
         </div>
 
@@ -283,7 +283,7 @@
                   <div class="book-autor">By Sunyi Dean</div>
                   <p class="book-summary">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
                   <img class="book-image" src="./images/book_winter_empty.jpg" width="200" height="300" alt="The Book Eaters - Sunyi Dean">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('1')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -292,7 +292,7 @@
                   <div class="book-autor">By Rachel Harrison</div>
                   <p class="book-summary">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
                   <img class="book-image" src="./images/book_winter_harrison.jpg" width="200" height="300" alt="Cackle - Rachel Harrison">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('2')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -301,7 +301,7 @@
                   <div class="book-autor">By Erich Auerbach</div>
                   <p class="book-summary">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
                   <img class="book-image" src="./images/book_winter_dante.jpg" width="200" height="300" alt="Dante: Poet of the Secular World - Erich Auerbach">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('3')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -310,7 +310,7 @@
                   <div class="book-autor">By Clive Irving</div>
                   <p class="book-summary">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
                   <img class="book-image" src="./images/book_winter_queen.jpg" width="200" height="300" alt="The Last Queen - Clive Irving">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('4')">Buy</button>
                   <!--<button class="book-button button-disabled" type="button" disabled>Own</button>-->
                 </div>
               </div>
@@ -323,7 +323,7 @@
                   <div class="book-autor">By Stephen King</div>
                   <p class="book-summary">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</p>
                   <img class="book-image" src="./images/book_spring_king.jpg" width="200" height="300" alt="The Body - Stephen King">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('5')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -332,7 +332,7 @@
                   <div class="book-autor">By Toni Jenson</div>
                   <p class="book-summary">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
                   <img class="book-image" src="./images/book_spring_carry.jpg" width="200" height="300" alt="Carry: A Memoir of Survival on Stolen Land - Toni Jenson">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('6')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -341,7 +341,7 @@
                   <div class="book-autor">By Alexandra Chang</div>
                   <p class="book-summary">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</p>
                   <img class="book-image" src="./images/book_spring_chang.jpg" width="200" height="300" alt="Days of Distraction - Alexandra Chang">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('7')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -350,7 +350,7 @@
                   <div class="book-autor">By Angie Cruz</div>
                   <p class="book-summary">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
                   <img class="book-image" src="./images/book_spring_cruz.jpg" width="200" height="300" alt="Dominicana - Angie Cruz">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('8')">Buy</button>
                 </div>
               </div>
 
@@ -362,7 +362,7 @@
                   <div class="book-autor">By Pablo Fajardo & Sophie Tardy-Joubert</div>
                   <p class="book-summary">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</p>
                   <img class="book-image" src="./images/book_summer_memuar.jpg" width="200" height="300" alt="Crude: A Memoir - Pablo Fajardo & Sophie Tardy-Joubert">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('9')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -371,7 +371,7 @@
                   <div class="book-autor">By Yvon Chouinard</div>
                   <p class="book-summary">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
                   <img class="book-image" src="./images/book_summer_chouinard.jpg" width="200" height="300" alt="Let My People Go Surfing - Yvon Chouinard">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('10')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -380,7 +380,7 @@
                   <div class="book-autor">By Brenda Shaughnessy</div>
                   <p class="book-summary">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
                   <img class="book-image" src="./images/book_summer_poems.jpg" width="200" height="300" alt="The Octopus Museum: Poems - Brenda Shaughnessy">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('11')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -389,7 +389,7 @@
                   <div class="book-autor">By Kiana Davenport</div>
                   <p class="book-summary">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
                   <img class="book-image" src="./images/book_summer_kiana.jpg" width="200" height="300" alt="Shark Dialogues: A Novel - Kiana Davenport">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('12')">Buy</button>
                 </div>
               </div>
 
@@ -401,7 +401,7 @@
                   <div class="book-autor">By Renia White</div>
                   <p class="book-summary">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.</p>
                   <img class="book-image" src="./images/book_autumn_white.jpg" width="200" height="300" alt="Casual Conversation - Renia White">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('13')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -410,7 +410,7 @@
                   <div class="book-autor">By Lou Ureneck</div>
                   <p class="book-summary">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide.</p>
                   <img class="book-image" src="./images/book_autumn_ureneck.jpg" width="200" height="300" alt="The Great Fire - Lou Ureneck">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('14')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -419,7 +419,7 @@
                   <div class="book-autor">By Howard Bryant</div>
                   <p class="book-summary">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
                   <img class="book-image" src="./images/book_autumn_rickey.jpg" width="200" height="300" alt="Rickey: The Life and Legend - Howard Bryant">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('15')">Buy</button>
                 </div>
                 <div class="book-wrapper">
                   <div class="book-staff">Staff Picks</div>
@@ -428,7 +428,7 @@
                   <div class="book-autor">By Megan Milks</div>
                   <p class="book-summary">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
                   <img class="book-image" src="./images/book_autumn_slug.jpg" width="200" height="300" alt="Slug: And Other Stories - Megan Milks">
-                  <button class="book-button" type="button">Buy</button>
+                  <button class="book-button" type="button" onclick="buy_book('16')">Buy</button>
                 </div>
               </div>
             </div>
@@ -543,21 +543,47 @@
                 <div class="find-form-wrapper box-shadow">
                   <div class="find-form-block box-shadow">
                     <div class="find-form-text">Brooklyn Public Library</div>
-                    <input class="find-form-input" type="text" name="reader_name" id="reader_name" placeholder="Reader's name">
-                    <input class="find-form-input" type="text" name="reader_card" id="reader_card" placeholder="Card number">
+                    <input class="find-form-input" type="text" name="reader_name" id="data_name_dlc" placeholder="Reader's name">
+                    <input class="find-form-input" type="text" name="reader_card" id="data_cardnumber_dlc" placeholder="Card number">
                   </div>
-                  <div class="find-form-submit-wrapper">
+                  <div class="find-form-submit-wrapper" id="library-card-left-noauth">
                     <button class="find-form-button" type="button" id="find-form">Check the card</button>
+                  </div>
+                  <div class="find-form-statistics-container hidden-area" id="library-card-left-auth">
+                      <div class="find-form-statistics-column find-form-statistics-column-visits">
+                        <div class="find-form-statistics-parameter">visits</div>
+                        <div class="find-form-statistics-icon"><img src="./images/stat_union.svg" width="20" height="21" alt="Visits"></div>
+                        <div class="find-form-statistics-count"><span id="data_visits_dlc"></span></div>
+                      </div>
+                      <div class="find-form-statistics-column find-form-statistics-column-bonuses">
+                        <div class="find-form-statistics-parameter">bonuses</div>
+                        <div class="find-form-statistics-icon"><img src="./images/stat_star.svg" width="20" height="21" alt="Bonuses"></div>
+                        <div class="find-form-statistics-count"><span id="data_bonuses_dlc"></span></div>
+                      </div>
+                      <div class="find-form-statistics-column statistics-column-books">
+                        <div class="find-form-statistics-parameter">Books</div>
+                        <div class="find-form-statistics-icon"><img src="./images/stat_book.svg" width="20" height="21" alt="Books"></div>
+                        <div class="find-form-statistics-count"><span id="data_books_dlc"></span></div>
+                      </div>
                   </div>
                 </div>
               </div>
-              <div class="card-login-form">
+              <div class="card-login-form" id="library-card-right-noauth">
                 <div class="login-form-header">Get a reader card</div>
                 <div class="login-form-text">You will be able to see a reader card after logging into account or you can register a new account</div>
                 <div class="login-form-wrapper">
                   <div class="login-form-submit-wrapper">
-                    <button class="login-form-button" type="button" id="sign_up" onclick="modal_showhide('register');">Sign Up</button>
-                    <button class="login-form-button" type="button" id="login_in" onclick="modal_showhide('login');">Log in</button>
+                    <button class="login-form-button" type="button" onclick="modal_showhide('register');">Sign Up</button>
+                    <button class="login-form-button" type="button" onclick="modal_showhide('login');">Log in</button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-login-form hidden-area" id="library-card-right-auth">
+                <div class="login-form-header">Visit your profile</div>
+                <div class="login-form-text">With a digital library card you get free access to the Library's wide array of digital resources including e-books, databases, educational resources, and more.</div>
+                <div class="login-form-wrapper">
+                  <div class="login-form-submit-wrapper">
+                    <button class="login-form-button" type="button" onclick="modal_showhide('profile');">Profile</button>
                   </div>
                 </div>
               </div>

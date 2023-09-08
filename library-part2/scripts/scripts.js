@@ -219,7 +219,7 @@ function form_check (toForm){
       login_password.classList.remove('logon-input-error');
     }
 
-    // submit if ok
+    // save user if ok
     if (login_mail_test == true && login_password_lenght >= 8){
       login_form.submit();
     }
@@ -264,9 +264,74 @@ function form_check (toForm){
       register_password.classList.remove('logon-input-error');
     }
 
-    // submit if ok
+    // verify user data
     if (register_mail_test == true && register_first_name_lenght > 1 && register_last_name_lenght > 1 && register_password_lenght >= 8){
-      register_form.submit();
+
+      // save data to localStorage
+      let full_name = register_first_name.value + ' ' + register_last_name.value;
+      let initials_1 = register_first_name.value.substring(0, 1).toUpperCase();
+      let initials_2 = register_last_name.value.substring(0, 1).toUpperCase();
+      let initials = initials_1+''+initials_2;
+      let bonuses = Math.random(3);
+      bonuses = Math.ceil(bonuses*1000);
+      let library_card = Math.floor(100000 + Math.random() * 900000);
+      library_card = library_card+'999';
+      library_card = Number(library_card);
+      let library_card_hex = library_card.toString(16);
+      library_card_hex = String(library_card_hex).toUpperCase();
+      // data array
+      const user_data = new Map ([
+        ['mail', register_mail.value],
+        ['password', register_password.value],
+        ['first_name', register_first_name.value],
+        ['last_name', register_last_name.value],
+        ['full_name', full_name],
+        ['initials', initials],
+        ['library_card', library_card_hex],
+        ['credit_card',''],
+        ['visits','1'],
+        ['bonuses', bonuses],
+        ['books','0'],
+        ['titles','0'],
+      ]);
+      //console.log(user_data);
+      const user_data_json = JSON.stringify(Object.fromEntries(user_data));
+      //localStorage.setItem('name', 'value');
+      localStorage[register_mail.value] = JSON.stringify(user_data_json);
+
+      // change user values on page
+      document.getElementById('data_initials_menu').innerHTML = initials;
+      document.getElementById('data_initials_profile').innerHTML = initials;
+      document.getElementById('data_name_profile').innerHTML = full_name;
+      document.getElementById('data_name_dlc').value = full_name;
+      document.getElementById('data_visits_profile').innerHTML = '1';
+      document.getElementById('data_visits_dlc').innerHTML = '1';
+      document.getElementById('data_bonuses_profile').innerHTML = bonuses;
+      document.getElementById('data_bonuses_dlc').innerHTML = bonuses;
+      document.getElementById('data_books_profile').innerHTML = '0';
+      document.getElementById('data_books_dlc').innerHTML = '0';
+      document.getElementById('data_cardnumber_menu').innerHTML = library_card;
+      document.getElementById('data_cardnumber_profile').innerHTML = library_card;
+      document.getElementById('data_cardnumber_hidden').value = library_card;
+      document.getElementById('data_cardnumber_dlc').value = library_card;
+      document.getElementById('data_titles_profile').innerHTML = '';
+
+      // change menu
+      document.getElementById('data_cardnumber_menu').classList.add('small-font');
+      document.getElementById('user-menu-noauth').classList.add('hidden-area');
+      document.getElementById('user-menu-auth').classList.remove('hidden-area');
+      document.getElementById('user-pic-noauth').classList.add('hidden-area');
+      document.getElementById('data_initials_title').setAttribute('title', full_name);
+
+      // change layer visibility
+      document.getElementById('library-card-left-noauth').classList.add('hidden-area');
+      document.getElementById('library-card-left-auth').classList.remove('hidden-area');
+      document.getElementById('library-card-right-noauth').classList.add('hidden-area');
+      document.getElementById('library-card-right-auth').classList.remove('hidden-area');
+
+      // close modal
+      modal_showhide('register');
+
     }
   }
 
@@ -351,7 +416,7 @@ function form_check (toForm){
 
     // submit if ok
     if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16) && card_number_test == true) && (card_mon_lenght == 2 && card_mon_test == true) && (card_year_lenght == 2 && card_year_test == true) && (card_cvc_lenght == 3 && card_cvc_test == true) && card_holder_lenght > 1 && (card_postal_lenght > 1 && card_postal_test == true) && card_city_lenght > 1){
-      card_form.submit();
+      //card_form.submit();
     }
   }
 }
@@ -388,4 +453,34 @@ function trim_spaces (toForm){
   return true;
 }
 
-//
+// buy_book добавление книг в аккаунт
+function buy_book () {
+
+}
+
+// cardnumber_copy копия в буфер
+function cardnumber_copy () {
+  let hidden_number = document.getElementById('data_cardnumber_hidden').value;
+  navigator.clipboard.writeText(hidden_number);
+  document.getElementById('cardnumber_copied').innerHTML = 'Copied!';
+}
+
+// Library массив книг
+const Library = new Map([
+  ['1', 'The Book Eater\'s, Sunyi Dean'],
+  ['2', 'Cackle, Rachel Harrison'],
+  ['3', 'Dante: Poet of the Secular World, Erich Auerbach'],
+  ['4', 'The Last Queen,  Clive Irving'],
+  ['5', 'The Body, Stephen King'],
+  ['6', 'Carry: A Memoir of Survival on Stolen Land, Toni Jenson'],
+  ['7', 'Days of Distraction, Alexandra Chang'],
+  ['8', 'Dominicana, Angie Cruz'],
+  ['9', 'Crude: A Memoir, Pablo Fajardo & Sophie Tardy-Joubert'],
+  ['10', 'Let My People Go Surfing, Yvon Chouinard'],
+  ['11', 'The Octopus Museum: Poems, Brenda Shaughnessy'],
+  ['12', 'Shark Dialogues: A Novel, Kiana Davenport'],
+  ['13', 'Casual Conversation, Renia White'],
+  ['14', 'The Great Fire, Lou Ureneck'],
+  ['15', 'Rickey: The Life and Legend, Howard Bryant'],
+  ['16', 'Slug: And Other Stories, Megan Milks'],
+]);
