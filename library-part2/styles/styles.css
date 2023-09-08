@@ -50,7 +50,7 @@ a.menu:hover {
   cursor: pointer;
 }
 
-a.user {
+a.user-link {
   text-decoration: none;
 }
 
@@ -1014,11 +1014,11 @@ a.user {
   margin-top: 30px;
 }
 
-.profile {
+.user {
   z-index: 5;
 }
 
-.profile-menu {
+.user-menu {
   display: block;
   position: absolute;
   z-index: 3;
@@ -1034,19 +1034,20 @@ a.user {
   transition-timing-function: ease-in-out;
 }
 
-.profile-menu__open {
-  height: 115px;
+.user-menu__open {
+  /*height: 115px;*/
+  height: 215px;
   transition: height 1s;
 }
 
-.profile-container {
+.user-container {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
 }
 
-.profile-menu-header {
+.user-menu-header {
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
@@ -1054,7 +1055,7 @@ a.user {
   line-height: 20px;
 }
 
-.profile-menu-line {
+.user-menu-line {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -1064,7 +1065,7 @@ a.user {
   background: #BB945F;
 }
 
-.profile-menu-links {
+.user-menu-links {
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
@@ -1093,6 +1094,26 @@ a.user {
   left: 50%;
   transform: translate(-50%,-50%);
   background: white;
+}
+
+.modal-login {
+  width: 250px;
+  height: 262px;
+}
+
+.modal-register {
+  width: 250px;
+  height: 382px;
+}
+
+.modal-buy {
+  width: 650px;
+  height: 540px;
+}
+
+.modal-profile {
+  width: 600px;
+  height: 400px;
 }
 
 .modal-close-button {
@@ -1138,8 +1159,9 @@ a.user {
 }
 
 .logon-input {
-  height: 20px;
+  height: 18px;
   border: 0.50px #BB945F solid;
+  font-size: medium;
 }
 
 .logon-input-error {
@@ -1168,6 +1190,7 @@ a.user {
   font-size: 10px;
   font-family: Inter;
   font-weight: 400;
+  margin-top: 0px;
 }
 
 .logon-alternate-link {
@@ -1176,21 +1199,19 @@ a.user {
   font-weight: 700;
   text-decoration: underline;
   letter-spacing: 1px;
+  margin-left: 10px;
 }
 
-.modal-login {
-  width: 250px;
-  height: 262px;
+.login-input-button {
+  margin-top: 15px;
 }
 
-.modal-register {
-  width: 250px;
-  height: 382px;
+.register-input-text{
+  margin-top: 5px;
 }
 
-.modal-buy {
-  width: 650px;
-  height: 540px;
+.register-input-button {
+  margin-top: 15px;
 }
 
 .buy-title-container {
@@ -1215,11 +1236,11 @@ a.user {
 }
 
 .buy-close-button {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   position: absolute;
   text-align: right;
-  right: 20px;
+  right: 25px;
   top: 25px;
 }
 
@@ -1233,13 +1254,17 @@ a.user {
 .buy-left-side {
   width: 200px;
   margin-left: 40px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .buy-right-side {
   width: 330px;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-right: 40px;
+}
+
+.buy-text-exp{
+margin-top: 2px;
 }
 
 .buy-exp-container {
@@ -1250,13 +1275,25 @@ a.user {
 }
 
 .buy-exp-input {
-  width: 45px;
-  height: 20px;
+  width: 40px;
+  height: 18px;
   border: 0.50px #BB945F solid;
 }
 
 .buy-exp-input-error {
   border: 1px red solid;
+}
+
+.buy-text-cvc {
+  margin-top: 2px;
+}
+
+.buy-holder-input {
+  margin-top: 12px;
+}
+
+.buy-text-city {
+  margin-top: 2px;
 }
 
 .buy-price-container {
@@ -1265,7 +1302,8 @@ a.user {
   justify-content: flex-start;
   align-items: flex-end;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 10px;
+  margin-top: 5px;
 }
 
 .buy-price {
@@ -1277,6 +1315,7 @@ a.user {
   line-height: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  margin-left: 15px;
 }
 
 .buy-text {
@@ -1289,8 +1328,216 @@ a.user {
   letter-spacing: 2px;
 }
 
-.modal-profile {
-  display: none;
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.profile-left-side {
+  width: 170px;
+  height: 403px;
+  background: #0C0C0E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-initial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 80px;
+  height: 80px;
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: capitalize;
+  align-self: center;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 30px;
+  flex-shrink: 0;
+  background: white;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /*text-transform: uppercase;*/
+  margin-top: 20px;
+}
+
+.profile-right-side {
+  background: white;
+  height: 400px;
+  margin-left: 10px;
+}
+
+.profile-close-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  text-align: right;
+  right: 25px;
+  top: 25px;
+}
+
+.profile-title {
+  color: #000;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+.profile-statistics-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  width: 237px;
+  height: 81px;
+}
+
+.statistics-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 81px;
+}
+
+.statistics-column-visits {
+  width: 53px;
+}
+
+.statistics-column-bonuses {
+  width: 84px;
+}
+
+.statistics-column-books {
+  width: 60px;
+}
+
+.statistics-parameter {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+}
+
+.statistics-icon {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.statistics-count {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.profile-books-title {
+  color: #0C0C0E;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.profile-books-container {
+  width: 400px;
+  height: 80px;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-left: 10px;
+}
+
+/*
+.profile-books-container ul {
+  display: list-item;
+  list-style-type: disc;
+}
+*/
+
+.profile-books-container-scroll {
+  overflow: scroll;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.profile-card-text {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.profile-card-number {
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.profile-card-copy {
+  margin-left: 3px;
 }
 
 /* Media query's */
@@ -1311,7 +1558,7 @@ a.user {
     margin-bottom: 40px;
   }
 
-  .profile-menu {
+  .user-menu {
     right: 20px;
   }
 

@@ -15,7 +15,7 @@
     <title>Brooklyn Public Library</title>
   </head>
 
-  <body onload="menu_showhide('hamburger','mobile-menu'); menu_showhide('profile','profile-menu'); carousel(); slider();">
+  <body onload="menu_showhide('hamburger','mobile-menu'); menu_showhide('user','user-menu'); carousel(); slider();">
     <div class="container">
 
       <!-- modal windows -->
@@ -31,7 +31,7 @@
               <input class="logon-input" type="text" name="login_mail" id="login_mail">
               <div class="logon-input-text">Password</div>
               <input class="logon-input" type="password" name="login_password" id="login_password">
-              <button class="logon-button" type="button" onclick="form_check('login')">Log In</button>
+              <button class="logon-button login-input-button" type="button" onclick="form_check('login')">Log In</button>
               <div class="logon-alternate-text">Don't have an account?
                 <a class="logon-alternate-link" href="#" onclick="modal_switch('login','register');">Register</a>
               </div>
@@ -49,11 +49,11 @@
               <input class="logon-input" type="text" name="register_first_name" id="register_first_name">
               <div class="logon-input-text">Last name</div>
               <input class="logon-input" type="text" name="register_last_name" id="register_last_name">
-              <div class="logon-input-text">E-mail</div>
+              <div class="logon-input-text register-input-text">E-mail</div>
               <input class="logon-input" type="text" name="register_mail" id="register_mail">
               <div class="logon-input-text">Password</div>
               <input class="logon-input" type="password" name="register_password" id="register_password">
-              <button class="logon-button" type="button" onclick="form_check('register')">Sign Up</button>
+              <button class="logon-button register-input-button" type="button" onclick="form_check('register')">Sign Up</button>
               <div class="logon-alternate-text">Already have an account?
                 <a class="logon-alternate-link" href="#" onclick="modal_switch('register','login');">Login</a>
               </div>
@@ -72,18 +72,18 @@
               <form class="logon-form" name="card_form" action="#">
                 <div class="logon-input-text">Bank card number</div>
                 <input class="logon-input" type="text" name="card_number" id="card_number" maxlength="19" size="19">
-                <div class="logon-input-text">Expiration code</div>
+                <div class="logon-input-text buy-text-exp">Expiration code</div>
                 <div class="buy-exp-container">
                   <input class="buy-exp-input" type="text" name="card_mon" id="card_mon" maxlength="2" size="2">
                   <input class="buy-exp-input" type="text" name="card_year" id="card_year" maxlength="2" size="2">
                 </div>
-                <div class="logon-input-text">CVC</div>
+                <div class="logon-input-text buy-text-cvc">CVC</div>
                 <input class="buy-exp-input" type="text" name="card_cvc" id="card_cvc" maxlength="3" size="3">
-                <div class="logon-input-text">Cardholder name</div>
+                <div class="logon-input-text buy-holder-input">Cardholder name</div>
                 <input class="logon-input" type="text" name="card_holder" id="card_holder">
                 <div class="logon-input-text">Postal code</div>
                 <input class="logon-input" type="text" name="card_postal" id="card_postal">
-                <div class="logon-input-text">City / Town</div>
+                <div class="logon-input-text buy-text-city">City / Town</div>
                 <input class="logon-input" type="text" name="card_city" id="card_city">
                 <div class="buy-price-container">
                   <div><button class="logon-button" type="button" onclick="form_check('card')">Buy</button></div>
@@ -102,31 +102,39 @@
         <div class="modal-window modal-profile">
           <div class="profile-container">
             <div class="profile-left-side">
-              <div class="profile-initial"></div>
-              <div class="profile-name"></div>
+              <div class="profile-initial">JD</div>
+              <div class="profile-name">John Doe</div>
             </div>
             <div class="profile-right-side">
+              <div class="profile-close-button"><a href="#" onclick="modal_showhide('profile');"><img src="./images/close_btn.svg" width="15" height="15" alt="Close"></a></div>
               <div class="profile-title">My profile</div>
               <div class="profile-statistics-table">
-                <div class="statistics-column">
+                <div class="statistics-column statistics-column-visits">
                   <div class="statistics-parameter">visits</div>
-                  <div class="statistics-icon"></div>
-                  <div class="statistics-count"></div>
+                  <div class="statistics-icon"><img src="./images/stat_union.svg" width="20" height="21" alt="Visits"></div>
+                  <div class="statistics-count"><span id="data_visits"></span></div>
                 </div>
-                <div class="statistics-column">
+                <div class="statistics-column statistics-column-bonuses">
                   <div class="statistics-parameter">bonuses</div>
-                  <div class="statistics-icon"></div>
-                  <div class="statistics-count"></div>
+                  <div class="statistics-icon"><img src="./images/stat_star.svg" width="20" height="21" alt="Bonuses"></div>
+                  <div class="statistics-count"><span id="data_bonuses"></span></div>
                 </div>
-                <div class="statistics-column">
+                <div class="statistics-column statistics-column-books">
                   <div class="statistics-parameter">Books</div>
-                  <div class="statistics-icon"></div>
-                  <div class="statistics-count"></div>
+                  <div class="statistics-icon"><img src="./images/stat_book.svg" width="20" height="21" alt="Books"></div>
+                  <div class="statistics-count"><span id="data_count"></span></div>
                 </div>
               </div>
-              <div class="profile-books"></div>
-              <div class="profile-books-container"></div>
-              <div class="profile-card"></div>
+              <div class="profile-books-title">Rented books</div>
+              <!--<div class="profile-books-container">-->
+                <ul class="profile-books-container" id="data_titles">
+                </ul>
+              <!--</div>-->
+              <div class="profile-card">
+                <div class="profile-card-text">Card number</div>
+                <div class="profile-card-number"><span id="data_cardnumber">F00234030</span></div>
+                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a></div>
+              </div>
             </div>
           </div>
         </div>
@@ -148,27 +156,28 @@
             </ul>
           </nav>
 
-          <!-- profile menu -->
-          <div id="profile-menu" class="profile-menu">
-            <div class="profile-container">
-              <div class="profile-menu-header">Profile </div>
-              <div class="profile-menu-line"></div>
-              <ul class="profile-menu-links">
-                <li><a class="user" href="#" onclick="modal_showhide('login');">Log In</a></li>
-                <li><a class="user" href="#" onclick="modal_showhide('register');">Register</a></li>
-                <li><a class="user" href="#" onclick="modal_showhide('buy');">Buy test</a></li>
+          <!-- user menu -->
+          <div id="user-menu" class="user-menu">
+            <div class="user-container">
+              <div class="user-menu-header">Profile</div>
+              <div class="user-menu-line"></div>
+              <ul class="user-menu-links">
+                <li><a class="user-link" href="#" onclick="modal_showhide('login');">Log In</a></li>
+                <li><a class="user-link" href="#" onclick="modal_showhide('register');">Register</a></li>
+                <li><a class="user-link" href="#" onclick="modal_showhide('buy');">Buy card</a></li>
+                <li><a class="user-link" href="#" onclick="modal_showhide('profile');">Profile</a></li>
               </ul>
             </div>
           </div>
 
-          <!-- profile menu with auth -->
-          <div id="profile-menu-auth" class="profile-menu">
-            <div class="profile-container">
-              <div class="profile-menu-header">Profile </div>
-              <div class="profile-menu-line"></div>
-              <ul class="profile-menu-links">
-                <li><a class="user" href="#" onclick="modal_showhide('profile');">My profile</a></li>
-                <li><a class="user" href="#" onclick="modal_showhide('logout');">Log Out</a></li>
+          <!-- user menu with auth -->
+          <div id="user-menu-auth" class="user-menu">
+            <div class="user-container">
+              <div class="user-menu-header">Profile</div>
+              <div class="user-menu-line"></div>
+              <ul class="user-menu-links">
+                <li><a class="user-link" href="#" onclick="modal_showhide('profile');">My profile</a></li>
+                <li><a class="user-link" href="#" onclick="modal_showhide('logout');">Log Out</a></li>
               </ul>
             </div>
           </div>
@@ -186,14 +195,14 @@
 
           <!-- menu-icons -->
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
-          <div class="profile"><a href="#" onclick="menu_hide('mobile-menu');"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
+          <div class="user"><a href="#" onclick="menu_hide('mobile-menu');"><img class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
           <!--<div class="hamburger"><a href="javascript:show('mobile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="22" alt="Hamburger menu"></a></div>-->
-          <div class="hamburger"><a href="#" onclick="menu_hide('profile-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="34" alt="Hamburger menu"></a></div>
+          <div class="hamburger"><a href="#" onclick="menu_hide('user-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="34" alt="Hamburger menu"></a></div>
         </div>
 
       </header>
 
-      <main class="main" onclick="menu_hide('mobile-menu');menu_hide('profile-menu');">
+      <main class="main" onclick="menu_hide('mobile-menu');menu_hide('user-menu');">
 
         <section class="section-welcome">
           <div class="welcome-overlay"></div>
