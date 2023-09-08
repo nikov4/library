@@ -194,18 +194,196 @@ function slider (toSlide){
 
 // form_check проверка форм
 function form_check (toForm){
-  //const current_form = toForm+'_form';
+
+  // clear unused spaces
+  trim_spaces(toForm);
+
+  // check login form
   if (toForm == 'login'){
-    // check login form
-    let mail = document.getElementById('login_mail').value;
-    let password = document.getElementById('login_password').value;
-    login_form.submit();
-  } else if (toForm == 'register'){
-    // check register form
-    register_form.submit();
-  } else if (toForm == 'buy'){
-    // check buy a card form
-    buy_form.submit();
+
+    // mail must valid
+    let login_mail = document.getElementById('login_mail');
+    let login_mail_test = test_mail(login_mail.value);
+    if (login_mail_test == false){
+      login_mail.classList.add('logon-input-error');
+    } else {
+      login_mail.classList.remove('logon-input-error');
+    }
+
+    // password must contain at least 8 characters
+    let login_password = document.getElementById('login_password');
+    let login_password_lenght = login_password.value.length;
+    if (login_password_lenght < 8){
+      login_password.classList.add('logon-input-error');
+    } else {
+      login_password.classList.remove('logon-input-error');
+    }
+
+    // submit if ok
+    if (login_mail_test == true && login_password_lenght >= 8){
+      login_form.submit();
+    }
   }
 
+  // check register form
+  else if (toForm == 'register'){
+
+    // first name must contain at leat 1 character
+    let register_first_name = document.getElementById('register_first_name');
+    let register_first_name_lenght = register_first_name.value.length;
+    if (register_first_name_lenght < 1){
+      register_first_name.classList.add('logon-input-error');
+    } else {
+      register_first_name.classList.remove('logon-input-error');
+    }
+
+    // last name must contain at leat 1 non-space character
+    let register_last_name = document.getElementById('register_last_name');
+    let register_last_name_lenght = register_last_name.value.length;
+    if (register_last_name_lenght < 1){
+      register_last_name.classList.add('logon-input-error');
+    } else {
+      register_last_name.classList.remove('logon-input-error');
+    }
+
+    // mail must valid
+    let register_mail = document.getElementById('register_mail');
+    let register_mail_test = test_mail(register_mail.value);
+    if (register_mail_test == false){
+      register_mail.classList.add('logon-input-error');
+    } else {
+      register_mail.classList.remove('logon-input-error');
+    }
+
+    // password must contain at least 8 characters
+    let register_password = document.getElementById('register_password');
+    let register_password_lenght = register_password.value.length;
+    if (register_password_lenght < 8){
+      register_password.classList.add('logon-input-error');
+    } else {
+      register_password.classList.remove('logon-input-error');
+    }
+
+    // submit if ok
+    if (register_mail_test == true && register_first_name_lenght > 1 && register_last_name_lenght > 1 && register_password_lenght >= 8){
+      register_form.submit();
+    }
+  }
+
+  // check buy a card form
+  else if (toForm == 'card'){
+
+    // card numbert must contain 16 digits w/wo spaces or dashes
+    let card_number = document.getElementById('card_number');
+    let card_number_test = test_number(card_number.value);
+    let card_number_lenght = card_number.value.length;
+    // card number with dashes
+    let card_number_dashed = card_number.value.search(/-/g);
+    let card_number_dashed_lenght = card_number.value.replace(/\D/g,'').length;
+    // card number with spaces
+    let card_number_spaced = card_number.value.search(/ /g);
+    let card_number_spaced_lenght = card_number.value.replace(/\D/g,'').length;
+    // number check
+    //alert('card_number_lenght='+card_number_lenght+'\n card_number_dashed='+card_number_dashed+'\n card_number_dashed_lenght='+card_number_dashed_lenght+'\n card_number_spaced='+card_number_spaced+'\n card_number_spaced_lenght='+card_number_spaced_lenght+'\n card_number_test='+card_number_test);
+    if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16)) && card_number_test == true){
+      card_number.classList.remove('logon-input-error');
+    } else {
+      card_number.classList.add('logon-input-error');
+    }
+
+    // expiration mohth must contain 2 digits only
+    let card_mon = document.getElementById('card_mon');
+    let card_mon_test = test_digits(card_mon.value);
+    let card_mon_lenght = card_mon.value.length;
+    if (card_mon_lenght != 2 || card_mon_test == false){
+      card_mon.classList.add('buy-exp-input-error');
+    } else {
+      card_mon.classList.remove('buy-exp-input-error');
+    }
+
+    // expiration year must contain 2 digits only
+    let card_year = document.getElementById('card_year');
+    let card_year_test = test_digits(card_year.value);
+    let card_year_lenght = card_year.value.length;
+    if (card_year_lenght != 2 || card_year_test == false){
+      card_year.classList.add('buy-exp-input-error');
+    } else {
+      card_year.classList.remove('buy-exp-input-error');
+    }
+
+    // CVC code must contain 3 digits only
+    let card_cvc = document.getElementById('card_cvc');
+    let card_cvc_test = test_digits(card_cvc.value);
+    let card_cvc_lenght = card_cvc.value.length;
+    if (card_cvc_lenght != 3 || card_cvc_test == false){
+      card_cvc.classList.add('buy-exp-input-error');
+    } else {
+      card_cvc.classList.remove('buy-exp-input-error');
+    }
+
+    // holder name must contain at leat 1 non-space character
+    let card_holder = document.getElementById('card_holder');
+    let card_holder_lenght = card_holder.value.length;
+    if (card_holder_lenght < 1){
+      card_holder.classList.add('logon-input-error');
+    } else {
+      card_holder.classList.remove('logon-input-error');
+    }
+
+    // postal code must contain digits only
+    let card_postal = document.getElementById('card_postal');
+    let card_postal_test = test_digits(card_postal.value);
+    let card_postal_lenght = card_postal.value.length;
+    if (card_postal_lenght < 1 || card_postal_test == false){
+      card_postal.classList.add('logon-input-error');
+    } else {
+      card_postal.classList.remove('logon-input-error');
+    }
+
+    // city must contain at leat 1 non-space character
+    let card_city = document.getElementById('card_city');
+    let card_city_lenght = card_city.value.length;
+    if (card_city_lenght < 1){
+      card_city.classList.add('logon-input-error');
+    } else {
+      card_city.classList.remove('logon-input-error');
+    }
+
+    // submit if ok
+    if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16) && card_number_test == true) && (card_mon_lenght == 2 && card_mon_test == true) && (card_year_lenght == 2 && card_year_test == true) && (card_cvc_lenght == 3 && card_cvc_test == true) && card_holder_lenght > 1 && (card_postal_lenght > 1 && card_postal_test == true) && card_city_lenght > 1){
+      card_form.submit();
+    }
+  }
+}
+
+// test_mail проверка валидности E-mail
+function test_mail (toMail) {
+  // mail validation regexp
+  const mail_regexp = /^[\w-\.]+@[\w-]+\.[a-z]+$/i;
+  return mail_regexp.test(toMail);
+}
+
+// test_number проверка валидности карты
+function test_number (toNum){
+  const number_regexp = /^[\d -]+$/i;
+  return number_regexp.test(toNum);
+}
+
+// test_digits проверка чисел
+function test_digits (toDig){
+  const digits_regexp = /^[\d]+$/i;
+  return digits_regexp.test(toDig);
+}
+
+// trim_spaces удаляем ненужные пробелы во всех полях формы
+function trim_spaces (toForm){
+  let form = document.getElementsByName(toForm+'_form');
+  let form_inputs = form[0].getElementsByTagName('input');
+  let inputs_total = form[0].getElementsByTagName('input').length;
+  console.log('inputs_total='+inputs_total);
+  for (let i = 0; i < form_inputs.length; i++) {
+    console.log('form_inputs['+i+']='+form_inputs[i].value);
+    form_inputs[i].value = form_inputs[i].value.replace(/^\s\s*/, '').replace(/\s\s*$/, '').replace(/[\s]+/g, ' ');
+  }
+  return true;
 }

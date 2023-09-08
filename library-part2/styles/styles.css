@@ -1142,6 +1142,10 @@ a.user {
   border: 0.50px #BB945F solid;
 }
 
+.logon-input-error {
+  border: 1px red solid;
+}
+
 .logon-button {
   width: 75px;
   height: 30px;
@@ -1187,10 +1191,6 @@ a.user {
 .modal-buy {
   width: 650px;
   height: 540px;
-}
-
-.svg-fill-white {
-  fill: white;
 }
 
 .buy-title-container {
@@ -1253,6 +1253,10 @@ a.user {
   width: 45px;
   height: 20px;
   border: 0.50px #BB945F solid;
+}
+
+.buy-exp-input-error {
+  border: 1px red solid;
 }
 
 .buy-price-container {

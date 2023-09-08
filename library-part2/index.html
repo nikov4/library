@@ -52,7 +52,7 @@
               <div class="logon-input-text">E-mail</div>
               <input class="logon-input" type="text" name="register_mail" id="register_mail">
               <div class="logon-input-text">Password</div>
-              <input class="logon-input" type="text" name="register_password" id="register_password">
+              <input class="logon-input" type="password" name="register_password" id="register_password">
               <button class="logon-button" type="button" onclick="form_check('register')">Sign Up</button>
               <div class="logon-alternate-text">Already have an account?
                 <a class="logon-alternate-link" href="#" onclick="modal_switch('register','login');">Login</a>
@@ -69,24 +69,24 @@
           </div>
           <div class="buy-container">
             <div class="buy-left-side">
-              <form class="logon-form" name="buy_form" action="#">
+              <form class="logon-form" name="card_form" action="#">
                 <div class="logon-input-text">Bank card number</div>
-                <input class="logon-input" type="text" name="buy_card_number" id="buy_card_number">
+                <input class="logon-input" type="text" name="card_number" id="card_number" maxlength="19" size="19">
                 <div class="logon-input-text">Expiration code</div>
                 <div class="buy-exp-container">
-                  <input class="buy-exp-input" type="text" name="buy_card_mon" id="buy_card_mon" maxlength="2" size="2">
-                  <input class="buy-exp-input" type="text" name="buy_card_year" id="buy_card_year" maxlength="4" size="4">
+                  <input class="buy-exp-input" type="text" name="card_mon" id="card_mon" maxlength="2" size="2">
+                  <input class="buy-exp-input" type="text" name="card_year" id="card_year" maxlength="2" size="2">
                 </div>
                 <div class="logon-input-text">CVC</div>
-                <input class="buy-exp-input" type="text" name="buy_card_cvc" id="buy_card_cvc">
+                <input class="buy-exp-input" type="text" name="card_cvc" id="card_cvc" maxlength="3" size="3">
                 <div class="logon-input-text">Cardholder name</div>
-                <input class="logon-input" type="text" name="buy_card_holder" id="buy_card_holder">
+                <input class="logon-input" type="text" name="card_holder" id="card_holder">
                 <div class="logon-input-text">Postal code</div>
-                <input class="logon-input" type="text" name="buy_card_postal" id="buy_card_postal">
+                <input class="logon-input" type="text" name="card_postal" id="card_postal">
                 <div class="logon-input-text">City / Town</div>
-                <input class="logon-input" type="text" name="buy_card_city" id="buy_card_city">
+                <input class="logon-input" type="text" name="card_city" id="card_city">
                 <div class="buy-price-container">
-                  <div><button class="logon-button" type="button" onclick="form_check('buy')">Buy</button></div>
+                  <div><button class="logon-button" type="button" onclick="form_check('card')">Buy</button></div>
                   <div class="buy-price">$ 25.00</div>
                 </div>
               </form>
@@ -527,7 +527,7 @@
         <section class="section-library-card">
           <h2 class="title"><a id="library-card"></a>Digital Library Cards</h2>
           <div class="title-line"></div>
-          <form name="card_form" action="#">
+          <form name="reader_form" action="#">
             <div class="find-form-header">Find your Library card</div>
             <div class="card-wrapper">
               <div class="card-find-form">
@@ -535,7 +535,7 @@
                   <div class="find-form-block box-shadow">
                     <div class="find-form-text">Brooklyn Public Library</div>
                     <input class="find-form-input" type="text" name="reader_name" id="reader_name" placeholder="Reader's name">
-                    <input class="find-form-input" type="text" name="card_number" id="card_number" placeholder="Card number">
+                    <input class="find-form-input" type="text" name="reader_card" id="reader_card" placeholder="Card number">
                   </div>
                   <div class="find-form-submit-wrapper">
                     <button class="find-form-button" type="button" id="find-form">Check the card</button>
