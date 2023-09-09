@@ -1576,8 +1576,8 @@ margin-top: 2px;
 .profile-books-container {
   width: 400px;
   height: 80px;
-  margin-left: 10px;
-  list-style-position: inside;
+  margin-left: 0px;
+  /*list-style-position: inside;*/
   overflow: auto;
 }
 
@@ -1589,12 +1589,11 @@ margin-top: 2px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 2px;
+  margin-left: 10px;
 }
 
-.titles-container ul {
-  display: list-item;
-  list-style-type: disc;
-  letter-spacing: 2px;
+.titles-container li:before {
+  content: " • ";
 }
 
 .profile-card {

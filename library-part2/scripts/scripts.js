@@ -174,7 +174,7 @@ function slider (toSlide){
         this_slide.style.zIndex = '2';
       } else {
         this_slide.classList.remove('favorites-slide-hide');
-        setTimeout(() => this_slide.classList.add('favorites-slide-show'), 500);
+        setTimeout(() => this_slide.classList.add('favorites-slide-show'), 1000);
         this_slide.style.zIndex = '2';
       }
     } else {
@@ -260,7 +260,7 @@ function login (){
 }
 
 // registration
-function registration (){
+function register (){
 
   // clear unused spaces
   trim_spaces('register_form');
@@ -595,7 +595,7 @@ function update_data (toId) {
   }
 
   // user book titles
-  document.getElementById('data_titles_profile').innerHTML = String(rented_books);
+  document.getElementById('data_titles_profile').innerHTML = rented_books;
 
 }
 
