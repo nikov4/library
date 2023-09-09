@@ -58,12 +58,9 @@ if (user_id != null){
   update_data (user_id);
 }
 
-// update data on book buy
-if (user_id != null){
-  //document.getElementById('favorites_form').addEventListener('click', function() {
-  // update_data (user_id);
-  //});
-}
+//
+// functions
+//
 
 // carousel
 function carousel (toJump){
@@ -96,7 +93,6 @@ function carousel (toJump){
       pag_item_sub.classList.remove('pagination-item-active');
     }
     //slides
-    //document.querySelector('.slide'+i).style.visibility = '';
     document.querySelector('.slide'+i).classList.remove('slide-hide');
   }
 
@@ -366,7 +362,6 @@ function register (){
   let card_number_spaced = card_number.value.search(/ /g);
   let card_number_spaced_lenght = card_number.value.replace(/\D/g,'').length;
   // number check
-  //alert('card_number_lenght='+card_number_lenght+'\n card_number_dashed='+card_number_dashed+'\n card_number_dashed_lenght='+card_number_dashed_lenght+'\n card_number_spaced='+card_number_spaced+'\n card_number_spaced_lenght='+card_number_spaced_lenght+'\n card_number_test='+card_number_test);
   if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16)) && card_number_test == true){
     card_number.classList.remove('logon-input-error');
   } else {
@@ -454,7 +449,60 @@ function register (){
 
 // check library card
 function check_card (){
-  alert('check_card');
+
+  // clear unused spaces
+  trim_spaces('reader_form');
+
+  // name must contain at leat 3 non-space character
+  let reader_name = document.getElementById('data_name_dlc');
+  let reader_name_lenght = reader_name.value.length;
+  if (reader_name_lenght < 3){
+    reader_name.classList.add('checkcard-input-error');
+  } else {
+    reader_name.classList.remove('checkcard-input-error');
+  }
+
+  // card number must contain 9 hex digits only
+  let reader_card = document.getElementById('data_cardnumber_dlc');
+  let reader_card_test = test_hex(reader_card.value);
+  let reader_card_lenght = reader_card.value.length;
+  if (reader_card_lenght != 9 || reader_card_test == false){
+    reader_card.classList.add('checkcard-input-error');
+  } else {
+    reader_card.classList.remove('checkcard-input-error');
+  }
+
+  // verify user data
+  if (reader_card_test == true && reader_card_lenght == 9 && reader_name_lenght > 3){
+
+    // search whole localStorage
+    for (let i = 0, length = localStorage.length; i < length; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage[key];
+      let data_json = JSON.parse(value);
+      let user_data = new Map(Object.entries(data_json));
+      let user_id = user_data.get('mail');
+      let user_fullname = user_data.get('full_name');
+      let user_card_number = user_data.get('card_number');
+
+      if (reader_name.value == user_fullname && reader_card.value == user_card_number){
+
+        // update data
+        document.getElementById('data_visits_dlc').textContent = user_data.get('visits');
+        document.getElementById('data_bonuses_dlc').textContent = user_data.get('bonuses');
+        document.getElementById('data_books_dlc').textContent = user_data.get('books');
+        document.getElementById('library-card-left-auth').classList.remove('hidden-area');
+        document.getElementById('library-card-left-noauth').classList.add('hidden-area');
+        // close and clear data by timeout
+        setTimeout(function () {
+          document.getElementById('library-card-left-auth').classList.add('hidden-area');
+          document.getElementById('library-card-left-noauth').classList.remove('hidden-area');
+          document.getElementById('data_name_dlc').value = '';
+          document.getElementById('data_cardnumber_dlc').value = '';
+        }, 10000);
+      }
+    }
+  }
 }
 
 // buy book
@@ -583,18 +631,17 @@ function update_data (toId) {
   let book_buttons = document.getElementsByName('book-button');
   let user_titles = user_data.get('titles');
   let books = user_titles.split(';');
-  let book_id = 'book-id-';
+  let book_id;
   let rented_books = '';
-  for (let i = 0; i < books.length; i++) {
-    book_id = Number(books[i]);
-    document.querySelector('.book-id-'+book_id).classList.add('button-disabled');
-    document.querySelector('.book-id-'+book_id).textContent = 'Own';
-    document.querySelector('.book-id-'+book_id).setAttribute('disabled','');
-    // rented books
+  for (let i = 1; i < books.length; i++) {
+    document.querySelector('.book-id-'+books[i]).classList.add('button-disabled');
+    document.querySelector('.book-id-'+books[i]).textContent = 'Own';
+    document.querySelector('.book-id-'+books[i]).setAttribute('disabled','');
+    // rented book
     rented_books = rented_books + '<li>' + Library.get(books[i]) + '</li>';
   }
 
-  // user book titles
+  // rented books list
   document.getElementById('data_titles_profile').innerHTML = rented_books;
 
 }
@@ -694,21 +741,33 @@ function trim_spaces (toForm){
   return true;
 }
 
-// test_mail проверка валидности E-mail
+// test mail
 function test_mail (toMail) {
   // mail validation regexp
   const mail_regexp = /^[\w-\.]+@[\w-]+\.[a-z]+$/i;
   return mail_regexp.test(toMail);
 }
 
-// test_number проверка валидности карты
+// test number
 function test_number (toNum){
   const number_regexp = /^[\d -]+$/i;
   return number_regexp.test(toNum);
 }
 
-// test_digits проверка чисел
+// test digits
 function test_digits (toDig){
   const digits_regexp = /^[\d]+$/i;
   return digits_regexp.test(toDig);
+}
+
+// test digits
+function test_digits (toDig){
+  const digits_regexp = /^[\d]+$/i;
+  return digits_regexp.test(toDig);
+}
+
+// test hexadecimal
+function test_hex (toHex) {
+  const hex_regexp = /^[0-9A-F]+$/i;
+  return hex_regexp.test(toHex);
 }
