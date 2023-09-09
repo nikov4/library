@@ -1177,7 +1177,7 @@ a.user-link {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-  z-index: 3;
+  z-index: 9;
   background: rgba(110, 110, 110, 0.8);
 }
 

@@ -1,3 +1,23 @@
+// Library массив книг
+const Library = new Map([
+  ['1', 'The Book Eater\'s, Sunyi Dean'],
+  ['2', 'Cackle, Rachel Harrison'],
+  ['3', 'Dante: Poet of the Secular World, Erich Auerbach'],
+  ['4', 'The Last Queen,  Clive Irving'],
+  ['5', 'The Body, Stephen King'],
+  ['6', 'Carry: A Memoir of Survival on Stolen Land, Toni Jenson'],
+  ['7', 'Days of Distraction, Alexandra Chang'],
+  ['8', 'Dominicana, Angie Cruz'],
+  ['9', 'Crude: A Memoir, Pablo Fajardo & Sophie Tardy-Joubert'],
+  ['10', 'Let My People Go Surfing, Yvon Chouinard'],
+  ['11', 'The Octopus Museum: Poems, Brenda Shaughnessy'],
+  ['12', 'Shark Dialogues: A Novel, Kiana Davenport'],
+  ['13', 'Casual Conversation, Renia White'],
+  ['14', 'The Great Fire, Lou Ureneck'],
+  ['15', 'Rickey: The Life and Legend, Howard Bryant'],
+  ['16', 'Slug: And Other Stories, Megan Milks'],
+]);
+
 // show показываем объекты
 function show(toShow) {
 	var t_show = document.querySelector('.' + toShow);
@@ -176,15 +196,19 @@ function slider (toSlide){
       // selected slide
       if (slider_first_run == 1){
         this_slide.classList.add('favorites-slide-show');
+        this_slide.style.zIndex = '2';
       } else {
         this_slide.classList.remove('favorites-slide-hide');
-        setTimeout(() => this_slide.classList.add('favorites-slide-show'), 1000);
+        setTimeout(() => this_slide.classList.add('favorites-slide-show'), 500);
+        this_slide.style.zIndex = '2';
       }
     } else {
       // all slides
       if (slider_first_run == 1){
         this_slide.style.zIndex = '-1';
         setTimeout(() => this_slide.style.zIndex = '1', 1000);
+      } else {
+        this_slide.style.zIndex = '1';
       }
       this_slide.classList.remove('favorites-slide-show');
       this_slide.classList.add('favorites-slide-hide');
@@ -192,13 +216,13 @@ function slider (toSlide){
   }
 }
 
-// form_check проверка форм
+// form_check проверка формы и дальнейшие действия
 function form_check (toForm){
 
   // clear unused spaces
   trim_spaces(toForm);
 
-  // check login form
+  // login function
   if (toForm == 'login'){
 
     // mail must valid
@@ -219,13 +243,49 @@ function form_check (toForm){
       login_password.classList.remove('logon-input-error');
     }
 
-    // save user if ok
+    // search for user in localStorage
     if (login_mail_test == true && login_password_lenght >= 8){
-      login_form.submit();
+
+      let user = localStorage.getItem(login_mail.value);
+      if (user != null){
+        const data_json = JSON.parse(localStorage.getItem(login_mail.value));
+        const user_data = new Map(Object.entries(data_json));
+        let user_password = user_data.get('password');
+
+        if (login_password.value == user_password){
+
+          // password ok - save current session
+          const user_card_number = user_data.get('card_number');
+          const user_card_buyed = user_data.get('card_buyed');
+          let user_visits = user_data.get('visits');
+          user_visits++;
+          sessionStorage.setItem('user_id', login_mail.value);
+          sessionStorage.setItem('user_card_number', user_card_number);
+          sessionStorage.setItem('user_card_buyed', user_card_buyed);
+          user_data.set('visits',user_visits);
+
+          // save data to localStorage
+          const new_data_json = JSON.stringify(Object.fromEntries(user_data));
+          localStorage[login_mail.value] = new_data_json;
+
+          // get all data and change page values
+          get_user_data(login_mail.value);
+
+          // close modal
+          modal_showhide('login');
+
+        } else {
+          // password not ok
+          login_password.classList.add('logon-input-error');
+        }
+      } else {
+        // login not ok
+        login_mail.classList.add('logon-input-error');
+      }
     }
   }
 
-  // check register form
+  // register function
   else if (toForm == 'register'){
 
     // first name must contain at leat 1 character
@@ -291,11 +351,10 @@ function form_check (toForm){
         ['initials', initials],
         ['card_buyed', 0],
         ['card_number', library_card_hex],
-        ['credit_card',''],
         ['visits', 1],
         ['bonuses', bonuses],
         ['books', 0],
-        ['titles',''],
+        ['titles', ''],
       ]);
 
       // save data to localStorage
@@ -308,20 +367,20 @@ function form_check (toForm){
       sessionStorage.setItem('user_card_buyed', '0');
 
       // change user values on page
-      document.getElementById('data_initials_menu').innerHTML = initials;
-      document.getElementById('data_initials_profile').innerHTML = initials;
-      document.getElementById('data_name_profile').innerHTML = full_name;
+      document.getElementById('data_initials_menu').textContent = initials;
+      document.getElementById('data_initials_profile').textContent = initials;
+      document.getElementById('data_name_profile').textContent = full_name;
       document.getElementById('data_name_dlc').value = full_name;
-      document.getElementById('data_visits_profile').innerHTML = '1';
-      document.getElementById('data_visits_dlc').innerHTML = '1';
-      document.getElementById('data_bonuses_profile').innerHTML = bonuses;
-      document.getElementById('data_bonuses_dlc').innerHTML = bonuses;
-      document.getElementById('data_books_profile').innerHTML = '0';
-      document.getElementById('data_books_dlc').innerHTML = '0';
-      document.getElementById('data_cardnumber_menu').innerHTML = library_card;
-      document.getElementById('data_cardnumber_profile').innerHTML = library_card;
+      document.getElementById('data_visits_profile').textContent = '1';
+      document.getElementById('data_visits_dlc').textContent = '1';
+      document.getElementById('data_bonuses_profile').textContent = bonuses;
+      document.getElementById('data_bonuses_dlc').textContent = bonuses;
+      document.getElementById('data_books_profile').textContent = '0';
+      document.getElementById('data_books_dlc').textContent = '0';
+      document.getElementById('data_cardnumber_menu').textContent = library_card;
+      document.getElementById('data_cardnumber_profile').textContent = library_card;
       document.getElementById('data_cardnumber_dlc').value = library_card;
-      document.getElementById('data_titles_profile').innerHTML = '';
+      document.getElementById('data_titles_profile').textContent = '';
 
       // change menu
       document.getElementById('data_cardnumber_menu').classList.add('small-font');
@@ -343,7 +402,7 @@ function form_check (toForm){
     }
   }
 
-  // check buy a card form
+  // buy a card function
   else if (toForm == 'card'){
 
     // card numbert must contain 16 digits w/wo spaces or dashes
@@ -424,7 +483,23 @@ function form_check (toForm){
 
     // submit if ok
     if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16) && card_number_test == true) && (card_mon_lenght == 2 && card_mon_test == true) && (card_year_lenght == 2 && card_year_test == true) && (card_cvc_lenght == 3 && card_cvc_test == true) && card_holder_lenght > 1 && (card_postal_lenght > 1 && card_postal_test == true) && card_city_lenght > 1){
-      //card_form.submit();
+
+      // get data from localStorage
+      let user_id = sessionStorage.getItem('user_id');
+      const data_json = JSON.parse(localStorage.getItem(user_id));
+      const user_data = new Map(Object.entries(data_json));
+      user_data.set('card_buyed', 1);
+
+      // save data to localStorage
+      const new_data_json = JSON.stringify(Object.fromEntries(user_data));
+      localStorage[user_id] = new_data_json;
+
+      // save current session
+      sessionStorage.setItem('user_card_buyed', 1);
+
+      // close modal
+      modal_showhide('buy');
+
     }
   }
 }
@@ -480,7 +555,6 @@ function buy_book (toBook) {
     // get data from localStorage
     const data_json = JSON.parse(localStorage.getItem(user_id));
     const user_data = new Map(Object.entries(data_json));
-    let user_mail =  user_data.get('mail');
     let user_titles =  user_data.get('titles');
     let books_count =  user_data.get('books');
     let new_titles;
@@ -494,7 +568,7 @@ function buy_book (toBook) {
     user_data.set('titles',new_titles);
     // save data to localStorage
     const new_data_json = JSON.stringify(Object.fromEntries(user_data));
-    localStorage[user_mail] = new_data_json;
+    localStorage[user_id] = new_data_json;
     // change book state
     let book_to_disable = '.book-id-'+book_id;
     document.querySelector(book_to_disable).classList.add('button-disabled');
@@ -504,31 +578,16 @@ function buy_book (toBook) {
   }
 }
 
+// get_user_data применяем значения пользователя к страничке
+function get_user_data (toId) {
+  const user_id = toId;
+  //
+}
+
 // cardnumber_copy копия в буфер
 function cardnumber_copy () {
   let user_card = sessionStorage.getItem('user_card');
   navigator.clipboard.writeText(user_card);
-  document.getElementById('cardnumber_copied').innerHTML = 'Copied!';
+  document.getElementById('cardnumber_copied').textContent = 'Copied!';
+  //document.getElementById('cardnumber_copied').innerHTML = 'Copied!';
 }
-
-// Library массив книг
-const Library = new Map([
-  ['1', 'The Book Eater\'s, Sunyi Dean'],
-  ['2', 'Cackle, Rachel Harrison'],
-  ['3', 'Dante: Poet of the Secular World, Erich Auerbach'],
-  ['4', 'The Last Queen,  Clive Irving'],
-  ['5', 'The Body, Stephen King'],
-  ['6', 'Carry: A Memoir of Survival on Stolen Land, Toni Jenson'],
-  ['7', 'Days of Distraction, Alexandra Chang'],
-  ['8', 'Dominicana, Angie Cruz'],
-  ['9', 'Crude: A Memoir, Pablo Fajardo & Sophie Tardy-Joubert'],
-  ['10', 'Let My People Go Surfing, Yvon Chouinard'],
-  ['11', 'The Octopus Museum: Poems, Brenda Shaughnessy'],
-  ['12', 'Shark Dialogues: A Novel, Kiana Davenport'],
-  ['13', 'Casual Conversation, Renia White'],
-  ['14', 'The Great Fire, Lou Ureneck'],
-  ['15', 'Rickey: The Life and Legend, Howard Bryant'],
-  ['16', 'Slug: And Other Stories, Megan Milks'],
-]);
-
-
