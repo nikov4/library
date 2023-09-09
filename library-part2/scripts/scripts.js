@@ -18,6 +18,40 @@ const Library = new Map([
   ['16', 'Slug: And Other Stories, Megan Milks'],
 ]);
 
+// DataText изменяющиеся текстовые данные
+const DataText = new Map([
+  ['data_initials_menu', 'initials'],
+  ['data_initials_profile', 'initials'],
+  ['data_name_profile', 'full_name'],
+  ['data_visits_profile', 'visits'],
+  ['data_visits_dlc', 'visits'],
+  ['data_bonuses_profile', 'bonuses'],
+  ['data_bonuses_dlc', 'bonuses'],
+  ['data_books_profile', 'books'],
+  ['data_books_dlc', 'books'],
+  ['data_cardnumber_menu', 'library_card'],
+  ['data_cardnumber_profile', 'library_card'],
+  ['data_titles_profile', 'titles'],
+]);
+
+// DataValues изменяющиеся значения
+const DataValues = new Map([
+  ['data_name_dlc', 'full_name'],
+  ['data_cardnumber_dlc', 'library_card'],
+]);
+
+// DataClasses изменяемые классы
+const DataClasses = new Map([
+  ['user-menu-noauth', 'add'],
+  ['pic-user-noauth', 'add'],
+  ['library-card-left-noauth', 'add'],
+  ['library-card-right-noauth', 'add'],
+  ['user-menu-auth', 'remove'],
+  ['data_initials_menu', 'remove'],
+  ['library-card-left-auth', 'remove'],
+  ['library-card-right-auth', 'remove'],
+]);
+
 // show показываем объекты
 function show(toShow) {
 	var t_show = document.querySelector('.' + toShow);
@@ -188,7 +222,7 @@ function slider (toSlide){
     current_season = 'winter'
     slider_first_run = 1;
   }
-  let seasons = ['winter', 'spring', 'summer', 'autumn'];
+  const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
   for (let i = 0; i < seasons.length; i++) {
     let this_slide = document.querySelector('.slider-books-'+seasons[i]);
@@ -269,7 +303,7 @@ function form_check (toForm){
           localStorage[login_mail.value] = new_data_json;
 
           // get all data and change page values
-          get_user_data(login_mail.value);
+          update_data(login_mail.value);
 
           // close modal
           modal_showhide('login');
@@ -367,34 +401,34 @@ function form_check (toForm){
       sessionStorage.setItem('user_card_buyed', '0');
 
       // change user values on page
-      document.getElementById('data_initials_menu').textContent = initials;
-      document.getElementById('data_initials_profile').textContent = initials;
-      document.getElementById('data_name_profile').textContent = full_name;
-      document.getElementById('data_name_dlc').value = full_name;
-      document.getElementById('data_visits_profile').textContent = '1';
-      document.getElementById('data_visits_dlc').textContent = '1';
-      document.getElementById('data_bonuses_profile').textContent = bonuses;
-      document.getElementById('data_bonuses_dlc').textContent = bonuses;
-      document.getElementById('data_books_profile').textContent = '0';
-      document.getElementById('data_books_dlc').textContent = '0';
-      document.getElementById('data_cardnumber_menu').textContent = library_card;
-      document.getElementById('data_cardnumber_profile').textContent = library_card;
-      document.getElementById('data_cardnumber_dlc').value = library_card;
-      document.getElementById('data_titles_profile').textContent = '';
+      //document.getElementById('data_initials_menu').textContent = initials;
+      //document.getElementById('data_initials_profile').textContent = initials;
+      //document.getElementById('data_name_profile').textContent = full_name;
+      //document.getElementById('data_name_dlc').value = full_name;
+      //document.getElementById('data_visits_profile').textContent = '1';
+      //document.getElementById('data_visits_dlc').textContent = '1';
+      //document.getElementById('data_bonuses_profile').textContent = bonuses;
+      //document.getElementById('data_bonuses_dlc').textContent = bonuses;
+      //document.getElementById('data_books_profile').textContent = '0';
+      //document.getElementById('data_books_dlc').textContent = '0';
+      //document.getElementById('data_cardnumber_menu').textContent = library_card;
+      //document.getElementById('data_cardnumber_profile').textContent = library_card;
+      //document.getElementById('data_cardnumber_dlc').value = library_card;
+      //document.getElementById('data_titles_profile').textContent = '';
 
       // change menu
-      document.getElementById('data_cardnumber_menu').classList.add('small-font');
-      document.getElementById('user-menu-noauth').classList.add('hidden-area');
-      document.getElementById('user-menu-auth').classList.remove('hidden-area');
-      document.getElementById('pic-user-noauth').classList.add('hidden-area');
-      document.getElementById('data_initials_menu').classList.remove('hidden-area');
-      document.getElementById('data_initials_title').setAttribute('title', full_name);
+      //document.getElementById('data_cardnumber_menu').classList.add('small-font');
+      //document.getElementById('user-menu-noauth').classList.add('hidden-area');
+      //document.getElementById('user-menu-auth').classList.remove('hidden-area');
+      //document.getElementById('pic-user-noauth').classList.add('hidden-area');
+      //document.getElementById('data_initials_menu').classList.remove('hidden-area');
+      //document.getElementById('data_initials_title').setAttribute('title', full_name);
 
       // change layer visibility
-      document.getElementById('library-card-left-noauth').classList.add('hidden-area');
-      document.getElementById('library-card-left-auth').classList.remove('hidden-area');
-      document.getElementById('library-card-right-noauth').classList.add('hidden-area');
-      document.getElementById('library-card-right-auth').classList.remove('hidden-area');
+      //document.getElementById('library-card-left-noauth').classList.add('hidden-area');
+      //document.getElementById('library-card-left-auth').classList.remove('hidden-area');
+      //document.getElementById('library-card-right-noauth').classList.add('hidden-area');
+      //document.getElementById('library-card-right-auth').classList.remove('hidden-area');
 
       // close modal
       modal_showhide('register');
@@ -578,7 +612,7 @@ function buy_book (toBook) {
   }
 }
 
-// logout выход и удаление сессии
+// logout
 function logout() {
   let user = sessionStorage.getItem('user_id');
   if (user != null){
@@ -586,24 +620,75 @@ function logout() {
     sessionStorage.removeItem('user_card_number');
     sessionStorage.removeItem('user_card_buyed');
 
-    // clear all values on page
-    clear_user_data(login_mail.value);
+    // clear user text
+    DataText.forEach((value, key, map) => {
+      document.getElementById(`${key}`).textContent = '';
+    });
+
+    // clear user values
+    let class_action;
+    DataValues.forEach((value, key, map) => {
+      document.getElementById(`${key}`).value = '';
+    });
+
+    // reset book buy button state
+    let buttons = document.getElementsByClassName('book-button');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('button-disabled');
+      buttons[i].textContent = 'Buy';
+      buttons[i].removeAttribute('disabled');
+    }
   }
 }
 
-// get_user_data применяем значения пользователя к страничке
-function clear_user_data () {
-  alert('logou suc');
-  //
-}
-
-// get_user_data применяем значения пользователя к страничке
-function get_user_data (toId) {
+// update data
+function update_data (toId) {
   const user_id = toId;
-  //
+  const data_json = JSON.parse(localStorage.getItem(user_id));
+  const user_data = new Map(Object.entries(data_json));
+
+  // update data text
+  DataText.forEach((value, key, map) => {
+    //console.log(`${key}: ${value}`);
+    document.getElementById(`${key}`).textContent = user_data.get(`${value}`);
+  });
+
+  // update data values
+  DataValues.forEach((value, key, map) => {
+    document.getElementById(`${key}`).value = user_data.get(`${value}`);
+  });
+
+  // update classes
+  let class_action;
+  DataClasses.forEach((value, key, map) => {
+    //console.log(`${key}: ${value}`);
+    class_action = `${value}`;
+    if (class_action == 'add'){
+      document.getElementById(`${key}`).classList.add('small-font');
+    } else{
+      document.getElementById(`${key}`).classList.remove('small-font');
+    }
+  });
+
+  // change menu
+  document.getElementById('data_initials_title').setAttribute('title', user_data.get('full_name'));
+  document.getElementById('data_cardnumber_menu').classList.add('small-font');
+
+  // change buy button state
+  let book_buttons = document.getElementsByName('book-button');
+  let user_titles = user_data.get('titles');
+  let books = user_titles.split(';');
+  let book_id = 'book-id-';
+  for (let i = 0; i < books.length; i++) {
+    console.log('.book-id-'+books[i]);
+    book_id = Number(books[i]);
+    document.querySelector('.book-id-'+book_id).classList.add('button-disabled');
+    document.querySelector('.book-id-'+book_id).textContent = 'Own';
+    document.querySelector('.book-id-'+book_id).setAttribute('disabled','');
+  }
 }
 
-// cardnumber_copy копия в буфер
+// card number copy
 function cardnumber_copy () {
   let user_card = sessionStorage.getItem('user_card');
   navigator.clipboard.writeText(user_card);
