@@ -29,15 +29,15 @@ const DataText = new Map([
   ['data_bonuses_dlc', 'bonuses'],
   ['data_books_profile', 'books'],
   ['data_books_dlc', 'books'],
-  ['data_cardnumber_menu', 'library_card'],
-  ['data_cardnumber_profile', 'library_card'],
-  ['data_titles_profile', 'titles'],
+  ['data_cardnumber_menu', 'card_number'],
+  ['data_cardnumber_profile', 'card_number'],
+  //['data_titles_profile', 'titles'],
 ]);
 
 // DataValues
 const DataValues = new Map([
   ['data_name_dlc', 'full_name'],
-  ['data_cardnumber_dlc', 'library_card'],
+  ['data_cardnumber_dlc', 'card_number'],
 ]);
 
 // DataClasses
@@ -54,8 +54,16 @@ const DataClasses = new Map([
 
 // update data on page load
 let user_id = sessionStorage.getItem('user_id');
-update_data (user_id);
+if (user_id != null){
+  update_data (user_id);
+}
 
+// update data on book buy
+if (user_id != null){
+  //document.getElementById('favorites_form').addEventListener('click', function() {
+  //  update_data (user_id);
+  //});
+}
 
 // carousel
 function carousel (toJump){
@@ -187,7 +195,7 @@ function slider (toSlide){
 function login (){
 
   // clear unused spaces
-  trim_spaces(login_form);
+  trim_spaces('login_form');
 
   // mail must valid
   let login_mail = document.getElementById('login_mail');
@@ -558,12 +566,23 @@ function update_data (toId) {
   let user_titles = user_data.get('titles');
   let books = user_titles.split(';');
   let book_id = 'book-id-';
+  let rented_books = '';
   for (let i = 0; i < books.length; i++) {
     book_id = Number(books[i]);
     document.querySelector('.book-id-'+book_id).classList.add('button-disabled');
     document.querySelector('.book-id-'+book_id).textContent = 'Own';
     document.querySelector('.book-id-'+book_id).setAttribute('disabled','');
+    // rented books
+    //console.log('i='+i+' '+'books[i]='+books[i]+' '+Library.get(books[i]));
+    rented_books = rented_books + '• ' + Library.get(books[i]) + ' ';
   }
+
+  // user book titles
+  if (books.length > 2){
+    document.getElementById('data_titles_profile').classList.add('overflow-scroll');
+  }
+  document.getElementById('data_titles_profile').textContent = rented_books;
+
 }
 
 //
@@ -651,7 +670,7 @@ function cardnumber_copy () {
 
 // trim unused spaces
 function trim_spaces (toForm){
-  let form = document.getElementsByName(toForm+'_form');
+  let form = document.getElementsByName(toForm);
   let form_inputs = form[0].getElementsByTagName('input');
   let inputs_total = form[0].getElementsByTagName('input').length;
   for (let i = 0; i < form_inputs.length; i++) {

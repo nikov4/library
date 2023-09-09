@@ -30,7 +30,7 @@
               <input class="logon-input" type="text" name="login_mail" id="login_mail">
               <div class="logon-input-text">Password</div>
               <input class="logon-input" type="password" name="login_password" id="login_password">
-              <button class="logon-button login-input-button" type="button" onclick="form_check('login')">Log In</button>
+              <button class="logon-button login-input-button" type="button" onclick="login()">Log In</button>
               <div class="logon-alternate-text">Don't have an account?
                 <a class="logon-alternate-link" href="javascript:void(0);" onclick="modal_switch('login','register');">Register</a>
               </div>
@@ -52,7 +52,7 @@
               <input class="logon-input" type="text" name="register_mail" id="register_mail">
               <div class="logon-input-text">Password</div>
               <input class="logon-input" type="password" name="register_password" id="register_password">
-              <button class="logon-button register-input-button" type="button" onclick="form_check('register')">Sign Up</button>
+              <button class="logon-button register-input-button" type="button" onclick="register()">Sign Up</button>
               <div class="logon-alternate-text">Already have an account?
                 <a class="logon-alternate-link" href="javascript:void(0);" onclick="modal_switch('register','login');">Login</a>
               </div>
@@ -85,7 +85,7 @@
                 <div class="logon-input-text buy-text-city">City / Town</div>
                 <input class="logon-input" type="text" name="card_city" id="card_city">
                 <div class="buy-price-container">
-                  <div><button class="logon-button" type="button" onclick="form_check('card')">Buy</button></div>
+                  <div><button class="logon-button" type="button" onclick="buy_card()">Buy</button></div>
                   <div class="buy-price">$ 25.00</div>
                 </div>
               </form>
@@ -257,7 +257,7 @@
         <section class="section-favorites">
           <h2 class="title"><a id="favorites"></a>Favorites</h2>
           <div class="title-line"></div>
-          <form name="favorites_form" action="#">
+          <form name="favorites_form" action="#" id="favorites_form">
             <div class="favorites-text">Pick favorites of season</div>
             <div class="favorites-seasons">
               <label class="season-wrapper" for="winter">
