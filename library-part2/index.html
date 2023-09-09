@@ -134,7 +134,7 @@
                 <input type="hidden" id="data_cardnumber_hidden" value="">
                 <div class="profile-card-text">Card number</div>
                 <div class="profile-card-number"><span id="data_cardnumber_profile"></span></div>
-                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a><span id="cardnumber_copied"><span></div>
+                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a><span class="cardnumber_copy" id="cardnumber_copied"><span></div>
               </div>
             </div>
           </div>
@@ -196,7 +196,13 @@
 
           <!-- menu-icons -->
           <!--<a href="#"><svg class="pictogram"><use xlink:href="#pic-user"/></svg></a>-->
-          <div class="user"><a href="#" onclick="menu_hide('mobile-menu');" id="data_initials_title"><span class="user-initials pic-user" id="data_initials_menu"></span><img id="user-pic-noauth" class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>
+          <!--<div class="user"><a href="#" onclick="menu_hide('mobile-menu');" id="data_initials_title"><span class="user-initials pic-user" id="data_initials_menu"></span><img id="user-pic-noauth" class="pic-user" src="./images/pic-user.png" width="28" height="28" alt="User login"></a></div>-->
+          <div class="user">
+            <a class="user-link" href="#" onclick="menu_hide('mobile-menu');" id="data_initials_title">
+              <div class="pic-user pic-user-auth hidden-area" id="data_initials_menu"></div>
+              <div class="pic-user pic-user-noauth" id="pic-user-noauth"></div>
+            </a>
+          </div>
           <div class="hamburger"><a href="#" onclick="menu_hide('user-menu');"><img class="pic-hamburger" src="./images/pic-burger.png" width="45" height="34" alt="Hamburger menu"></a></div>
         </div>
 

@@ -1031,18 +1031,28 @@ a.user-link {
 
 /* Mobile menu and icons */
 
-.user-initials {
-  color: #0C0C0E;
-  font-weight: bold;
-  background: white;
-  border-radius: 50%;
+.pic-user {
+  margin-top: 11px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.pic-user-noauth {
+  background: url(../images/pic-user.png);
+  background-position: center;
+  background-size: 100%;
   width: 28px;
   height: 28px;
 }
 
-.pic-user {
-  margin-top: 11px;
-  margin-right: 20px;
+.pic-user-auth {
+  color: #0C0C0E;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  border-radius: 100%;
+  width: 28px;
+  height: 28px;
 }
 
 .pic-hamburger {
@@ -1623,6 +1633,10 @@ margin-top: 2px;
 
 .profile-card-copy {
   margin-left: 3px;
+}
+.cardnumber_copy {
+  margin-left: 10px;
+  color: #8E8E8E;
 }
 
 /* Media query's */

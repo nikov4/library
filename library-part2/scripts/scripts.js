@@ -320,7 +320,8 @@ function form_check (toForm){
       document.getElementById('data_cardnumber_menu').classList.add('small-font');
       document.getElementById('user-menu-noauth').classList.add('hidden-area');
       document.getElementById('user-menu-auth').classList.remove('hidden-area');
-      document.getElementById('user-pic-noauth').classList.add('hidden-area');
+      document.getElementById('pic-user-noauth').classList.add('hidden-area');
+      document.getElementById('data_initials_menu').classList.remove('hidden-area');
       document.getElementById('data_initials_title').setAttribute('title', full_name);
 
       // change layer visibility
@@ -454,8 +455,19 @@ function trim_spaces (toForm){
 }
 
 // buy_book добавление книг в аккаунт
-function buy_book () {
+function buy_book (toBook) {
 
+  let book_id = toBook;
+  book_id = book_id.replace(/\D/g,'');
+
+  // check user login
+  let user_cardnumber = document.getElementById('data_cardnumber_hidden').value;
+  if (user_cardnumber == ''){
+    modal_showhide('login');
+  } else {
+    //localStorage.getItem(key);
+  }
+  
 }
 
 // cardnumber_copy копия в буфер
