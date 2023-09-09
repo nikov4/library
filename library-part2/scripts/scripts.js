@@ -46,7 +46,6 @@ const DataClasses = new Map([
   ['pic-user-noauth', 'add'],
   ['library-card-left-noauth', 'add'],
   ['library-card-right-noauth', 'add'],
-  ['user-menu-auth', 'remove'],
   ['data_initials_menu', 'remove'],
   ['library-card-left-auth', 'remove'],
   ['library-card-right-auth', 'remove'],
@@ -57,6 +56,10 @@ let user_id = sessionStorage.getItem('user_id');
 if (user_id != null){
   update_data (user_id);
 }
+menu_showhide('hamburger','mobile-menu');
+menu_showhide('user','user-menu');
+carousel();
+slider();
 
 //
 // functions
@@ -242,7 +245,7 @@ function login (){
         update_data(login_mail.value);
 
         // close modal
-        modal_showhide('login');
+        modal_hide('login');
 
       } else {
         // password not ok
@@ -340,7 +343,7 @@ function register (){
     sessionStorage.setItem('user_card_buyed', '0');
 
     // close modal
-    modal_showhide('register');
+    modal_hide('register');
 
   }
 }
@@ -443,7 +446,7 @@ function register (){
     sessionStorage.setItem('user_card_buyed', 1);
 
     // close modal
-    modal_showhide('buy');
+    modal_hide('buy');
   }
 }
 
@@ -517,12 +520,12 @@ function buy_book (toBook) {
   if (user_id == null){
 
     // goto autorisation
-    modal_showhide('login');
+    modal_hide('login');
 
   } else if (user_card_buyed == 0){
 
     // goto library card
-    modal_showhide('buy');
+    modal_hide('buy');
 
   } else {
 
@@ -592,6 +595,9 @@ function logout() {
         document.getElementById(`${key}`).classList.add('hidden-area');
       }
     });
+
+    // change menu
+    document.getElementById('data_initials_title').removeAttribute('title');
 
   }
 }
@@ -700,26 +706,40 @@ function menu_showhide(toButton,toMenu) {
   }
 }
 
+// menu show
+function menu_show(toMenu) {
+  let h_menu = document.querySelector('.'+toMenu);
+  h_menu.classList.add(toMenu+'__open');
+}
+
 // menu hide
 function menu_hide(toMenu) {
   let h_menu = document.querySelector('.'+toMenu);
-  let h_menu_open = toMenu+'__open';
-  h_menu.classList.remove(h_menu_open);
+  h_menu.classList.remove(toMenu+'__open');
+}
+
+// modal show
+function modal_show (toModal){
+  show('modal-wrapper');
+  show('modal-'+toModal);
+}
+
+// modal hide show
+function modal_hide (toModal){
+  hide('modal-wrapper');
+  hide('modal-'+toModal);
 }
 
 // modal window showhide
-function modal_showhide (toModal){
-  let current_modal = 'modal-'+toModal;
+function modal_showhide0 (toModal){
   showhide('modal-wrapper');
-  showhide(current_modal);
+  showhide('modal-'+toModal);
 }
 
 // modal window switch
 function modal_switch (fromModal,toModal){
-  let from_modal = 'modal-'+fromModal;
-  let to_modal = 'modal-'+toModal;
-  hide(from_modal);
-  show(to_modal);
+  hide('modal-'+fromModal);
+  show('modal-'+toModal);
 }
 
 // card number copy
