@@ -460,9 +460,9 @@ function check_card (){
   let reader_name = document.getElementById('data_name_dlc');
   let reader_name_lenght = reader_name.value.length;
   if (reader_name_lenght < 3){
-    reader_name.classList.add('checkcard-input-error');
+    reader_name.classList.add('logon-input-error');
   } else {
-    reader_name.classList.remove('checkcard-input-error');
+    reader_name.classList.remove('logon-input-error');
   }
 
   // card number must contain 9 hex digits only
@@ -470,9 +470,9 @@ function check_card (){
   let reader_card_test = test_hex(reader_card.value);
   let reader_card_lenght = reader_card.value.length;
   if (reader_card_lenght != 9 || reader_card_test == false){
-    reader_card.classList.add('checkcard-input-error');
+    reader_card.classList.add('logon-input-error');
   } else {
-    reader_card.classList.remove('checkcard-input-error');
+    reader_card.classList.remove('logon-input-error');
   }
 
   // verify user data
@@ -520,12 +520,12 @@ function buy_book (toBook) {
   if (user_id == null){
 
     // goto autorisation
-    modal_hide('login');
+    modal_show('login');
 
   } else if (user_card_buyed == 0){
 
     // goto library card
-    modal_hide('buy');
+    modal_show('buy');
 
   } else {
 
