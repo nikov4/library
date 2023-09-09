@@ -61,7 +61,7 @@ if (user_id != null){
 // update data on book buy
 if (user_id != null){
   //document.getElementById('favorites_form').addEventListener('click', function() {
-  //  update_data (user_id);
+  // update_data (user_id);
   //});
 }
 
@@ -497,6 +497,9 @@ function buy_book (toBook) {
     document.querySelector(book_to_disable).classList.add('button-disabled');
     document.querySelector(book_to_disable).textContent = 'Own';
     document.querySelector(book_to_disable).setAttribute('disabled','');
+
+    // update user data
+    update_data (user_id);
 
   }
 }
