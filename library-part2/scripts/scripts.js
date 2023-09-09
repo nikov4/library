@@ -578,6 +578,25 @@ function buy_book (toBook) {
   }
 }
 
+// logout выход и удаление сессии
+function logout() {
+  let user = sessionStorage.getItem('user_id');
+  if (user != null){
+    sessionStorage.removeItem('user_id');
+    sessionStorage.removeItem('user_card_number');
+    sessionStorage.removeItem('user_card_buyed');
+
+    // clear all values on page
+    clear_user_data(login_mail.value);
+  }
+}
+
+// get_user_data применяем значения пользователя к страничке
+function clear_user_data () {
+  alert('logou suc');
+  //
+}
+
 // get_user_data применяем значения пользователя к страничке
 function get_user_data (toId) {
   const user_id = toId;
