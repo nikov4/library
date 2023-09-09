@@ -518,7 +518,6 @@ function logout() {
     });
 
     // clear user values
-    let class_action;
     DataValues.forEach((value, key, map) => {
       document.getElementById(`${key}`).value = '';
     });
@@ -530,6 +529,18 @@ function logout() {
       buttons[i].textContent = 'Buy';
       buttons[i].removeAttribute('disabled');
     }
+
+    // reset classes
+    let class_action;
+    DataClasses.forEach((value, key, map) => {
+      class_action = `${value}`;
+      if (class_action == 'add'){
+        document.getElementById(`${key}`).classList.remove('hidden-area');
+      } else{
+        document.getElementById(`${key}`).classList.add('hidden-area');
+      }
+    });
+
   }
 }
 

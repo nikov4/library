@@ -821,7 +821,7 @@ a.user-link {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 35px;
   margin-top: 10px;
 }
 
@@ -874,10 +874,6 @@ a.user-link {
   letter-spacing: 0.2px;
   text-transform: capitalize;
 }
-
-
-
-
 
 .card-login-form {
   margin-right: 25px;
