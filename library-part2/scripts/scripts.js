@@ -551,9 +551,9 @@ function update_data (toId) {
   DataClasses.forEach((value, key, map) => {
     class_action = `${value}`;
     if (class_action == 'add'){
-      document.getElementById(`${key}`).classList.add('small-font');
+      document.getElementById(`${key}`).classList.add('hidden-area');
     } else{
-      document.getElementById(`${key}`).classList.remove('small-font');
+      document.getElementById(`${key}`).classList.remove('hidden-area');
     }
   });
 
