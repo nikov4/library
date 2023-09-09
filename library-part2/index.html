@@ -125,10 +125,10 @@
                 </div>
               </div>
               <div class="profile-books-title">Rented books</div>
-              <!--<div class="profile-books-container">-->
-                <ul class="profile-books-container" id="data_titles_profile">
+              <div class="profile-books-container">
+                <ul class="titles-container" id="data_titles_profile">
                 </ul>
-              <!--</div>-->
+              </div>
               <div class="profile-card">
                 <div class="profile-card-text">Card number</div>
                 <div class="profile-card-number"><span id="data_cardnumber_profile"></span></div>
@@ -551,7 +551,7 @@
                     <input class="find-form-input" type="text" name="reader_card" id="data_cardnumber_dlc" placeholder="Card number">
                   </div>
                   <div class="find-form-submit-wrapper" id="library-card-left-noauth">
-                    <button class="find-form-button" type="button" id="find-form">Check the card</button>
+                    <button class="find-form-button" type="button" id="find-form" onclick="check_card();">Check the card</button>
                   </div>
                   <div class="find-form-statistics-container hidden-area" id="library-card-left-auth">
                       <div class="find-form-statistics-column find-form-statistics-column-visits">

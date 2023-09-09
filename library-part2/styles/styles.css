@@ -27,11 +27,11 @@ p, h2, ul, form {
 }
 
 ul {
-  list-style-type: none;
+  /*list-style-type: none;*/
 }
 
 ul li {
-  display: inline;
+  /*display: inline;*/
 }
 
 a {
@@ -60,10 +60,6 @@ a.user-link {
 
 .small-font {
   font-size: smaller;
-}
-
-.overflow-scroll {
-  overflow: scroll;
 }
 
 .box-shadow {
@@ -1580,6 +1576,12 @@ margin-top: 2px;
 .profile-books-container {
   width: 400px;
   height: 80px;
+  margin-left: 10px;
+  list-style-position: inside;
+  overflow: auto;
+}
+
+.titles-container {
   color: #000;
   font-family: Inter;
   font-size: 20px;
@@ -1587,16 +1589,13 @@ margin-top: 2px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 2px;
-  text-transform: capitalize;
-  margin-left: 10px;
 }
 
-/*
-.profile-books-container ul {
+.titles-container ul {
   display: list-item;
   list-style-type: disc;
+  letter-spacing: 2px;
 }
-*/
 
 .profile-card {
   display: flex;

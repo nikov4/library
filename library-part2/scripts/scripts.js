@@ -452,6 +452,11 @@ function registration (){
   }
 }
 
+// check library card
+function check_card (){
+  alert('check_card');
+}
+
 // buy book
 function buy_book (toBook) {
 
@@ -493,10 +498,9 @@ function buy_book (toBook) {
     localStorage[user_id] = new_data_json;
 
     // change book state
-    let book_to_disable = '.book-id-'+book_id;
-    document.querySelector(book_to_disable).classList.add('button-disabled');
-    document.querySelector(book_to_disable).textContent = 'Own';
-    document.querySelector(book_to_disable).setAttribute('disabled','');
+    document.querySelector('.book-id-'+book_id).classList.add('button-disabled');
+    document.querySelector('.book-id-'+book_id).textContent = 'Own';
+    document.querySelector('.book-id-'+book_id).setAttribute('disabled','');
 
     // update user data
     update_data (user_id);
@@ -587,15 +591,11 @@ function update_data (toId) {
     document.querySelector('.book-id-'+book_id).textContent = 'Own';
     document.querySelector('.book-id-'+book_id).setAttribute('disabled','');
     // rented books
-    //console.log('i='+i+' '+'books[i]='+books[i]+' '+Library.get(books[i]));
-    rented_books = rented_books + '• ' + Library.get(books[i]) + ' ';
+    rented_books = rented_books + '<li>' + Library.get(books[i]) + '</li>';
   }
 
   // user book titles
-  if (books.length > 2){
-    document.getElementById('data_titles_profile').classList.add('overflow-scroll');
-  }
-  document.getElementById('data_titles_profile').textContent = rented_books;
+  document.getElementById('data_titles_profile').innerHTML = String(rented_books);
 
 }
 
