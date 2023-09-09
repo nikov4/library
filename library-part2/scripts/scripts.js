@@ -267,7 +267,7 @@ function form_check (toForm){
     // verify user data
     if (register_mail_test == true && register_first_name_lenght > 1 && register_last_name_lenght > 1 && register_password_lenght >= 8){
 
-      // save data to localStorage
+      // prepare data
       let full_name = register_first_name.value + ' ' + register_last_name.value;
       let initials_1 = register_first_name.value.substring(0, 1).toUpperCase();
       let initials_2 = register_last_name.value.substring(0, 1).toUpperCase();
@@ -275,10 +275,12 @@ function form_check (toForm){
       let bonuses = Math.random(3);
       bonuses = Math.ceil(bonuses*1000);
       let library_card = Math.floor(100000 + Math.random() * 900000);
-      library_card = library_card+'999';
+      library_card = library_card+'99999';
       library_card = Number(library_card);
       let library_card_hex = library_card.toString(16);
+      library_card_hex = library_card_hex.substring(0, 9);
       library_card_hex = String(library_card_hex).toUpperCase();
+
       // data array
       const user_data = new Map ([
         ['mail', register_mail.value],
@@ -287,17 +289,23 @@ function form_check (toForm){
         ['last_name', register_last_name.value],
         ['full_name', full_name],
         ['initials', initials],
-        ['library_card', library_card_hex],
+        ['card_buyed', 0],
+        ['card_number', library_card_hex],
         ['credit_card',''],
-        ['visits','1'],
+        ['visits', 1],
         ['bonuses', bonuses],
-        ['books','0'],
-        ['titles','0'],
+        ['books', 0],
+        ['titles',''],
       ]);
-      //console.log(user_data);
+
+      // save data to localStorage
       const user_data_json = JSON.stringify(Object.fromEntries(user_data));
-      //localStorage.setItem('name', 'value');
-      localStorage[register_mail.value] = JSON.stringify(user_data_json);
+      localStorage[register_mail.value] = user_data_json;
+
+      // save current session
+      sessionStorage.setItem('user_id', register_mail.value);
+      sessionStorage.setItem('user_card_number', library_card_hex);
+      sessionStorage.setItem('user_card_buyed', '0');
 
       // change user values on page
       document.getElementById('data_initials_menu').innerHTML = initials;
@@ -312,7 +320,6 @@ function form_check (toForm){
       document.getElementById('data_books_dlc').innerHTML = '0';
       document.getElementById('data_cardnumber_menu').innerHTML = library_card;
       document.getElementById('data_cardnumber_profile').innerHTML = library_card;
-      document.getElementById('data_cardnumber_hidden').value = library_card;
       document.getElementById('data_cardnumber_dlc').value = library_card;
       document.getElementById('data_titles_profile').innerHTML = '';
 
@@ -460,20 +467,47 @@ function buy_book (toBook) {
   let book_id = toBook;
   book_id = book_id.replace(/\D/g,'');
 
-  // check user login
-  let user_cardnumber = document.getElementById('data_cardnumber_hidden').value;
-  if (user_cardnumber == ''){
+  // check user login and buyed card
+  let user_id = sessionStorage.getItem('user_id');
+  let user_card_buyed = sessionStorage.getItem('user_card_buyed');
+  if (user_id == null){
+    // goto autorisation
     modal_showhide('login');
+  } else if (user_card_buyed == 0){
+    // goto library card
+    modal_showhide('buy');
   } else {
-    //localStorage.getItem(key);
+    // get data from localStorage
+    const data_json = JSON.parse(localStorage.getItem(user_id));
+    const user_data = new Map(Object.entries(data_json));
+    let user_mail =  user_data.get('mail');
+    let user_titles =  user_data.get('titles');
+    let books_count =  user_data.get('books');
+    let new_titles;
+    if (user_titles != ''){
+      new_titles = user_titles+';'+book_id;
+    } else {
+      new_titles = book_id;
+    }
+    books_count++;
+    user_data.set('books',books_count);
+    user_data.set('titles',new_titles);
+    // save data to localStorage
+    const new_data_json = JSON.stringify(Object.fromEntries(user_data));
+    localStorage[user_mail] = new_data_json;
+    // change book state
+    let book_to_disable = '.book-id-'+book_id;
+    document.querySelector(book_to_disable).classList.add('button-disabled');
+    document.querySelector(book_to_disable).textContent = 'Own';
+    document.querySelector(book_to_disable).setAttribute('disabled','');
+
   }
-  
 }
 
 // cardnumber_copy копия в буфер
 function cardnumber_copy () {
-  let hidden_number = document.getElementById('data_cardnumber_hidden').value;
-  navigator.clipboard.writeText(hidden_number);
+  let user_card = sessionStorage.getItem('user_card');
+  navigator.clipboard.writeText(user_card);
   document.getElementById('cardnumber_copied').innerHTML = 'Copied!';
 }
 
@@ -496,3 +530,5 @@ const Library = new Map([
   ['15', 'Rickey: The Life and Legend, Howard Bryant'],
   ['16', 'Slug: And Other Stories, Megan Milks'],
 ]);
+
+
