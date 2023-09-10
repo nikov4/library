@@ -15,10 +15,11 @@
   </head>
 
   <body>
+
     <div class="container">
 
       <!-- modal windows -->
-      <div class="modal-wrapper">
+      <div class="modal-wrapper" onclick="modal_close();"></div>
 
         <!-- login -->
         <div class="modal-window modal-login">
@@ -132,13 +133,11 @@
               <div class="profile-card">
                 <div class="profile-card-text">Card number</div>
                 <div class="profile-card-number"><span id="data_cardnumber_profile"></span></div>
-                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a><span class="cardnumber_copy" id="cardnumber_copied"><span></div>
+                <div class="profile-card-copy"><a href="#" onclick="cardnumber_copy();"><img src="./images/stat_copy.svg" width="13" height="12" alt="Copy"></a><span class="cardnumber_copy" id="cardnumber_copied"></span></div>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
 
       <header class="header">
         <div class="header-left">
@@ -165,7 +164,7 @@
                 <li><a class="user-link" href="javascript:void(0);" onclick="modal_show('register');">Register</a></li>
               </ul>
             </div>
-            <div class="user-container" id="user-menu-auth hidden-area">
+            <div class="user-container hidden-area" id="user-menu-auth">
               <div class="user-menu-header"><span id="data_cardnumber_menu"></span></div>
               <div class="user-menu-line"></div>
               <ul class="user-menu-links">

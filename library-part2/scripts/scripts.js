@@ -42,6 +42,7 @@ const DataValues = new Map([
 
 // DataClasses
 const DataClasses = new Map([
+  ['user-menu-auth', 'remove'],
   ['user-menu-noauth', 'add'],
   ['pic-user-noauth', 'add'],
   ['library-card-left-noauth', 'add'],
@@ -338,6 +339,9 @@ function register (){
     sessionStorage.setItem('user_id', register_mail.value);
     sessionStorage.setItem('user_card_number', library_card_hex);
     sessionStorage.setItem('user_card_buyed', '0');
+
+    // get all data and change page values
+    update_data(register_mail.value);
 
     // close modal
     modal_hide('register');
@@ -638,19 +642,21 @@ function update_data (toId) {
   let book_buttons = document.getElementsByName('book-button');
   let user_titles = user_data.get('titles');
   let books = user_titles.split(';');
-  let book_id;
-  let rented_books = '';
-  for (let i = 0; i < books.length; i++) {
-    document.querySelector('.book-id-'+books[i]).classList.add('button-disabled');
-    document.querySelector('.book-id-'+books[i]).textContent = 'Own';
-    document.querySelector('.book-id-'+books[i]).setAttribute('disabled','');
-    // rented book
-    rented_books = rented_books + '<li>' + Library.get(books[i]) + '</li>';
+  if (books > 0){
+    let book_id;
+    let rented_books = '';
+    for (let i = 0; i < books.length; i++) {
+      document.querySelector('.book-id-'+books[i]).classList.add('button-disabled');
+      document.querySelector('.book-id-'+books[i]).textContent = 'Own';
+      document.querySelector('.book-id-'+books[i]).setAttribute('disabled','');
+      // rented book
+      rented_books = rented_books + '<li>' + Library.get(books[i]) + '</li>';
+    }
+
+    // rented books list
+    document.getElementById('data_titles_profile').innerHTML = rented_books;
+
   }
-
-  // rented books list
-  document.getElementById('data_titles_profile').innerHTML = rented_books;
-
 }
 
 //
@@ -741,6 +747,15 @@ function modal_showhide (toModal){
 function modal_switch (fromModal,toModal){
   hide('modal-'+fromModal);
   show('modal-'+toModal);
+}
+
+// close all
+function modal_close (){
+  const modals = ['login', 'register', 'profile', 'buy'];
+  for (let i = 0; i < modals.length; i++) {
+    hide('modal-'+modals[i]);
+  }
+  hide('modal-wrapper');
 }
 
 // card number copy

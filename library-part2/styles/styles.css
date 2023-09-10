@@ -30,10 +30,6 @@ ul {
   list-style-type: none;
 }
 
-ul li {
-  /*display: inline;*/
-}
-
 a {
   color: #0c0c0e;
   text-decoration: underline;
@@ -1187,14 +1183,14 @@ a.user-link {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-  z-index: 9;
+  z-index: 5;
   background: rgba(110, 110, 110, 0.8);
 }
 
 .modal-window {
   display: none;
   position: fixed;
-  z-index: 4;
+  z-index: 6;
   top:  50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -1743,9 +1739,10 @@ margin-top: 2px;
     height: 2629px;
   }
 
-  .favorites-seasons {
-
-  }
+  /*.favorites-seasons {
+    position: sticky;
+    top: 10px;
+  }*/
 
   .favorites-books {
     flex-direction: column;
