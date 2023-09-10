@@ -228,9 +228,8 @@ a.user-link {
 }
 
 .about-images {
-  /*width: 1400px;*/
   display: flex;
-  flex-direction: row;
+  flex-direction: center;
   justify-content: flex-start;
   align-items: center;
   margin-top: 20px;
@@ -284,9 +283,13 @@ a.user-link {
 
 .slide-hide {
   visibility: hidden;
-  /*opacity: 0;*/
   transition-delay: 1s;
   transition-timing-function: ease-in-out;
+  opacity: 0;
+  animation-name: fadeOut;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
 }
 
 .pag-item1, .pag-item2, .pag-item3 {
@@ -1646,6 +1649,8 @@ margin-top: 2px;
 
 /* Media query's */
 
+
+/* switch to desktop */
 @media (min-width: 1025px) {
 
   /*img {
@@ -1678,6 +1683,7 @@ margin-top: 2px;
 
 }
 
+/* switch to tablet */
 @media (max-width: 1024px) {
 
   .container {
@@ -1701,6 +1707,7 @@ margin-top: 2px;
   }
 
   .about-images {
+    width: 100%;
     justify-content: center safe;
     margin-top: 10px;
     margin-left: 80px;
@@ -1710,6 +1717,11 @@ margin-top: 2px;
 
   .about-carret-left, .about-carret-right {
     display: inline;
+  }
+
+  .carousel-wrapper {
+    width: 550px;
+    overflow: hidden;
   }
 
   /*
@@ -1729,6 +1741,10 @@ margin-top: 2px;
 
   .section-favorites {
     height: 2629px;
+  }
+
+  .favorites-seasons {
+
   }
 
   .favorites-books {

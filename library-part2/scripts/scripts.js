@@ -129,11 +129,8 @@ function carousel (toJump){
     }
   } else {
     // tablet
-    //let car_margin = car_width*0.2;
-    //car_margin = car_margin + 'px';
-    //document.querySelector('.about-images').style.marginLeft = car_margin;
     if (jump > 1){
-      car_offset = -1*((jump-1)*550);
+      car_offset = -1*((jump-1)*475);
     } else {
       car_offset = 0;
     }
