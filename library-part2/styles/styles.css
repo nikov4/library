@@ -71,6 +71,7 @@ a.user-link {
   margin-right: auto;
   background: white;
   overflow: hidden;
+  z-index: 1;
 }
 
 .header {
@@ -1180,9 +1181,13 @@ a.user-link {
 
 .modal-wrapper {
   display: none;
+	position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   min-width: 100%;
   min-height: 100%;
-  position: absolute;
   z-index: 5;
   background: rgba(110, 110, 110, 0.8);
 }
@@ -1190,7 +1195,7 @@ a.user-link {
 .modal-window {
   display: none;
   position: fixed;
-  z-index: 6;
+  z-index: 7;
   top:  50%;
   left: 50%;
   transform: translate(-50%,-50%);
