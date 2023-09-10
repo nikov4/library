@@ -349,23 +349,20 @@ function register (){
 }
 
 // buy a library card
- function buy_card (){
+function buy_card (){
 
   // clear unused spaces
   trim_spaces('card_form');
 
-  // card numbert must contain 16 digits w/wo spaces or dashes
+  // card numbert must contain 16 digits w/wo spaces
   let card_number = document.getElementById('card_number');
   let card_number_test = test_number(card_number.value);
   let card_number_lenght = card_number.value.length;
-  // card number with dashes
-  let card_number_dashed = card_number.value.search(/-/g);
-  let card_number_dashed_lenght = card_number.value.replace(/\D/g,'').length;
   // card number with spaces
   let card_number_spaced = card_number.value.search(/ /g);
   let card_number_spaced_lenght = card_number.value.replace(/\D/g,'').length;
   // number check
-  if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16)) && card_number_test == true){
+  if ((card_number_lenght == 16 || (card_number_spaced == 4 && card_number_spaced_lenght == 16)) && card_number_test == true){
     card_number.classList.remove('logon-input-error');
   } else {
     card_number.classList.add('logon-input-error');
@@ -430,7 +427,7 @@ function register (){
   }
 
   // verify user data
-  if ((card_number_lenght == 16 || (card_number_dashed == 4 && card_number_dashed_lenght == 16) || (card_number_spaced == 4 && card_number_spaced_lenght == 16) && card_number_test == true) && (card_mon_lenght == 2 && card_mon_test == true) && (card_year_lenght == 2 && card_year_test == true) && (card_cvc_lenght == 3 && card_cvc_test == true) && card_holder_lenght > 1 && (card_postal_lenght > 1 && card_postal_test == true) && card_city_lenght > 1){
+  if ((card_number_lenght == 16 || (card_number_spaced == 4 && card_number_spaced_lenght == 16) && card_number_test == true) && (card_mon_lenght == 2 && card_mon_test == true) && (card_year_lenght == 2 && card_year_test == true) && (card_cvc_lenght == 3 && card_cvc_test == true) && card_holder_lenght > 1 && (card_postal_lenght > 1 && card_postal_test == true) && card_city_lenght > 1){
 
     // get data from localStorage
     let user_id = sessionStorage.getItem('user_id');
@@ -453,56 +450,63 @@ function register (){
 // check library card
 function check_card (){
 
-  // clear unused spaces
-  trim_spaces('reader_form');
+  // check user registration
+  let user_id = sessionStorage.getItem('user_id');
+  if (user_id != null){
 
-  // name must contain at leat 3 non-space character
-  let reader_name = document.getElementById('data_name_dlc');
-  let reader_name_lenght = reader_name.value.length;
-  if (reader_name_lenght < 3){
-    reader_name.classList.add('logon-input-error');
-  } else {
-    reader_name.classList.remove('logon-input-error');
-  }
+    // clear unused spaces
+    trim_spaces('reader_form');
 
-  // card number must contain 9 hex digits only
-  let reader_card = document.getElementById('data_cardnumber_dlc');
-  let reader_card_test = test_hex(reader_card.value);
-  let reader_card_lenght = reader_card.value.length;
-  if (reader_card_lenght != 9 || reader_card_test == false){
-    reader_card.classList.add('logon-input-error');
-  } else {
-    reader_card.classList.remove('logon-input-error');
-  }
+    // name must contain at leat 3 non-space character
+    let reader_name = document.getElementById('data_name_dlc');
+    let reader_name_lenght = reader_name.value.length;
+    if (reader_name_lenght < 3){
+      reader_name.classList.add('logon-input-error');
+    } else {
+      reader_name.classList.remove('logon-input-error');
+    }
 
-  // verify user data
-  if (reader_card_test == true && reader_card_lenght == 9 && reader_name_lenght > 3){
+    // card number must contain 9 hex digits only
+    let reader_card = document.getElementById('data_cardnumber_dlc');
+    let reader_card_test = test_hex(reader_card.value);
+    let reader_card_lenght = reader_card.value.length;
+    if (reader_card_lenght != 9 || reader_card_test == false){
+      reader_card.classList.add('logon-input-error');
+    } else {
+      reader_card.classList.remove('logon-input-error');
+    }
 
-    // search whole localStorage
-    for (let i = 0, length = localStorage.length; i < length; i++) {
-      const key = localStorage.key(i);
-      const value = localStorage[key];
-      let data_json = JSON.parse(value);
-      let user_data = new Map(Object.entries(data_json));
-      let user_id = user_data.get('mail');
-      let user_fullname = user_data.get('full_name');
-      let user_card_number = user_data.get('card_number');
+    // verify user data
+    if (reader_card_test == true && reader_card_lenght == 9 && reader_name_lenght > 3){
 
-      if (reader_name.value == user_fullname && reader_card.value == user_card_number){
+      // search whole localStorage
+      for (let i = 0, length = localStorage.length; i < length; i++) {
+        let key = localStorage.key(i);
+        let value = localStorage[key];
+        let data_json = JSON.parse(value);
+        let user_data = new Map(Object.entries(data_json));
+        let user_id = user_data.get('mail');
+        let user_fullname = user_data.get('full_name');
+        let user_card_number = user_data.get('card_number');
 
-        // update data
-        document.getElementById('data_visits_dlc').textContent = user_data.get('visits');
-        document.getElementById('data_bonuses_dlc').textContent = user_data.get('bonuses');
-        document.getElementById('data_books_dlc').textContent = user_data.get('books');
-        document.getElementById('library-card-left-auth').classList.remove('hidden-area');
-        document.getElementById('library-card-left-noauth').classList.add('hidden-area');
-        // close and clear data by timeout
-        setTimeout(function () {
-          document.getElementById('library-card-left-auth').classList.add('hidden-area');
-          document.getElementById('library-card-left-noauth').classList.remove('hidden-area');
-          document.getElementById('data_name_dlc').value = '';
-          document.getElementById('data_cardnumber_dlc').value = '';
-        }, 10000);
+        if (reader_name.value == user_fullname && reader_card.value == user_card_number){
+
+          // update data
+          document.getElementById('data_visits_dlc').textContent = user_data.get('visits');
+          document.getElementById('data_bonuses_dlc').textContent = user_data.get('bonuses');
+          document.getElementById('data_books_dlc').textContent = user_data.get('books');
+          document.getElementById('library-card-left-auth').classList.remove('hidden-area');
+          document.getElementById('library-card-left-noauth').classList.add('hidden-area');
+
+          // close and clear data by timeout
+          setTimeout(function () {
+            document.getElementById('library-card-left-auth').classList.add('hidden-area');
+            document.getElementById('library-card-left-noauth').classList.remove('hidden-area');
+            document.getElementById('data_name_dlc').value = '';
+            document.getElementById('data_cardnumber_dlc').value = '';
+          }, 10000);
+
+        }
       }
     }
   }
@@ -639,7 +643,7 @@ function update_data (toId) {
   let books = user_titles.split(';');
   let book_id;
   let rented_books = '';
-  for (let i = 1; i < books.length; i++) {
+  for (let i = 0; i < books.length; i++) {
     document.querySelector('.book-id-'+books[i]).classList.add('button-disabled');
     document.querySelector('.book-id-'+books[i]).textContent = 'Own';
     document.querySelector('.book-id-'+books[i]).setAttribute('disabled','');
@@ -724,14 +728,14 @@ function modal_show (toModal){
   show('modal-'+toModal);
 }
 
-// modal hide show
+// modal hide
 function modal_hide (toModal){
   hide('modal-wrapper');
   hide('modal-'+toModal);
 }
 
 // modal window showhide
-function modal_showhide0 (toModal){
+function modal_showhide (toModal){
   showhide('modal-wrapper');
   showhide('modal-'+toModal);
 }
