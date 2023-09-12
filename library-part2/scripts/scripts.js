@@ -453,7 +453,7 @@ function check_card (){
 
   // check user registration
   let user_id = sessionStorage.getItem('user_id');
-  if (user_id != null){
+  if (user_id == null){
 
     // clear unused spaces
     trim_spaces('reader_form');
