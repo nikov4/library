@@ -760,7 +760,7 @@ function modal_close (){
 
 // card number copy
 function cardnumber_copy () {
-  let user_card = sessionStorage.getItem('user_card');
+  let user_card = sessionStorage.getItem('user_card_number');
   navigator.clipboard.writeText(user_card);
   document.getElementById('cardnumber_copied').textContent = 'Copied!';
 }
