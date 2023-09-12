@@ -642,7 +642,7 @@ function update_data (toId) {
   let book_buttons = document.getElementsByName('book-button');
   let user_titles = user_data.get('titles');
   let books = user_titles.split(';');
-  if (books > 0){
+  if (books != ''){
     let book_id;
     let rented_books = '';
     for (let i = 0; i < books.length; i++) {
@@ -788,12 +788,6 @@ function test_mail (toMail) {
 function test_number (toNum){
   const number_regexp = /^[\d -]+$/i;
   return number_regexp.test(toNum);
-}
-
-// test digits
-function test_digits (toDig){
-  const digits_regexp = /^[\d]+$/i;
-  return digits_regexp.test(toDig);
 }
 
 // test digits
